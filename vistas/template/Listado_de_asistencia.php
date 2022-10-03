@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="dev_cefv.css" type="text/css">
     <meta name="viewport" content="width=device-with, initial-scale=1.0">
 </head>
-
 <body>
     <h1>1LS-131</h1>
     <h2>fecha:<input name="date" type="date"></h2>
