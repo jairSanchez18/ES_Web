@@ -1,0 +1,65 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: Century Gothic;
+}
+
+body{
+    background-color: ghostwhite;
+    margin: 20px;
+}
+
+h1,h2{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+input{
+    appearance: none;
+    color: #1D1D1D;
+    font-family: “Helvetica”, arial, sans-serif;
+    font-size: 18px;
+    border:1px solid #ECF0F1;
+    background:#ECF0F1;
+    padding: 4px;
+    display: inline-block;
+    visibility: visible;
+    width: 140px;    
+}
+
+table,th,td{
+    border: 1px solid black;
+    border-collapse:collapse ;
+}
+
+th,td{
+    padding: 10px;
+    text-align: center;
+}
+
+table{
+    margin-top: 10px;
+}
+
+table#tabla{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    margin-right: 10px;
+}
+
+button{
+    margin-right: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+img{
+    width: 30px;
+    height: 30px;
+}
+
+.home{
+    display: flex;
+    flex-wrap: wrap;
+}
