@@ -7,7 +7,13 @@
     <title>Estado de asistencia</title>
     <link rel="stylesheet" href="dev_cefv.css" type="text/css">
     <meta name="viewport" content="width=device-with, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../resources/styles/bootstrap/bootstrap.min.css">
+    <script src="../resources/styles/bootstrap/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="../resources/styles/estilos personalizados/dev_cefv.css">
 </head>
+
 <body>
     <h1>1LS-131</h1>
     <h2>fecha:<input name="date" type="date"></h2>

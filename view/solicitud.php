@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitudes</title>
+    <title>Document</title>
 </head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="../resources/styles/bootstrap/bootstrap.min.css">
+<script src="../resources/styles/bootstrap/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="../resources/styles/estilos personalizados/global.css">
 
 <body>
     <div class="shadow-sm p-3 mb-5 bg-body rounded">
         <div class="text-center">
-            <h3 class="h3">Solicitudes</h3>
+            <p class="subtext-style">Solicitudes</p>
         </div>
         <form action="#">
             <select class="form-select m-2" aria-label="Default">
@@ -41,8 +43,7 @@
                         <label for="floatingInput">kexy.rodriguez@utp.ac.pa</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="date" disabled class="form-control" id="floatingInput"
-                            placeholder="Fecha solicitado">
+                        <input type="date" disabled class="form-control" id="floatingInput" placeholder="Fecha solicitado">
                         <label for="floatingInput">Fecha de solicitud</label>
                     </div>
                 </div>
@@ -54,7 +55,7 @@
                 </div>
             </div>
             <div class="text-center d-grid gap-2 mt-2">
-                <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+                <button type="submit" class="btn-style">Enviar Solicitud</button>
             </div>
         </form>
     </div>

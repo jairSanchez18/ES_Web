@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horario de clases</title>
 
-
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <script src="bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../resources/styles/bootstrap/bootstrap.min.css">
+    <script src="../resources/styles/bootstrap/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>

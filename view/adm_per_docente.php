@@ -13,7 +13,7 @@
   <body>
     <div class="col-lg-12 px-lg-5 pt-lg-4 pb-lg-3 p-4">
    <H2 class="font-weight-bold mb-4 text-center">Bienvenido a su perfil</H2>
-   <img src="img_usr.png" alt="">
+   <img src="../../img/img_usr.png" alt="">
    <div class="mb-3">
                           <label for="nombre_usr" class="form-label font-weight-bold">Hernán Hernández</label>
                           
