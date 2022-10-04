@@ -1,0 +1,29 @@
+/*COLOR DE LOS BOTONES Y TAMAÑO*/
+.btn-style{
+    font-size: 20px;
+    padding: 5px 30px;
+    background-color: #212529;
+    color: white;
+}
+
+/*EFECTO AL PASAR EL MOUSE ENCIMA DEL BOTON
+(SE COLOCA AUTOMATICO UNA VEZ PONGAN LA CLASE EN SU ETIQUETA BUTTON)*/
+.btn-style:hover{
+    background-color: #16191d;
+}
+
+/*COLOR DE FONDO PREDETERMINADO*/
+.back-style{
+    background-color: #7a1c79;
+}
+
+/*ESTILO DE SUBTITULOS DE LAS PAGINAS WEB*/
+.subtext-style{
+    font-weight: 600;
+    font-size: 35px;
+}
+
+/*ESTILO DE LOS TEXTOS BASICOS (INPUTS, LABEL, PARRAFOS, ETC...)*/
+.text-style{
+    font-size: 16px;
+}
