@@ -27,7 +27,7 @@ h1{
 }
 
 h2{
-    font-size: 2.8rem;
+    font-size: 3.8rem;
     text-align: center;
 }
 @media (max-width: 480px) {
@@ -82,6 +82,7 @@ header{
     width: 5rem;
     height: 5rem;
 }
+
 
 @media (max-width: 480px) {
     .nombre-prof{
@@ -161,4 +162,13 @@ header{
         height: 5rem;
         margin: .5rem;
     }
+}
+
+.icono-cont{
+    width: 10rem;
+    height: 10rem;
+}
+
+.label-usr{
+    font-size: 31px;
 }

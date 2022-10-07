@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina princial</title>
-    <link rel="stylesheet" href="estilos\estilos personalizados\dev_frtv.css">
+    <link rel="stylesheet" href="../resources/styles\estilos personalizados\dev_frtv.css">
 </head>
 <body>
     <header>
         <a class="header-posicion" href="#">
-            <img class="logoutp" src="resources\imagesPP\logo_utp.jpg" alt="Logo utp">
+            <img class="logoutp" src="../resources/Images/imagesPP/logo_utp.jpg" alt="Logo utp">
             <h1>Asistencia UTP</h1>
         </a>
 
         <a class="header-posicion" href="#">
-            <img class="icono-user" src="resources\imagesPP\icon-user.png" alt="icono de usuario">
+            <img class="icono-user" src="../resources/Images/imagesPP/icon-user.png" alt="icono de usuario">
             <p class="nombre-prof">Nombre profesor</p>
         </a>
     </header>
@@ -102,16 +102,16 @@
         </nav>
     
         <main class="contenido-main">
-            <img class="img-main" src="resources\imagesPP\imgUTP.jpg" alt="Campus UTP">
+            <img class="img-main" src="../resources/Images/imagesPP/imgUTP.jpg" alt="Campus UTP">
             <h2 class="titulo-main">Bienvenido Nombre del profesor</h2>
         </main>
     </div> <!-- FIN DE LA CLASE contenido -->
 
     <!-- FOOTER -->
     <footer class="footer">
-        <img class="footer__logos" src="resources\imagesPP\logoES.PNG" alt="Logo empresa">
+        <img class="footer__logos" src="../resources/Images/imagesPP/logoES.PNG" alt="Logo empresa">
         <p class="footer__parrafo">&copy; 2022 - UTP</p>
-        <img class="footer__logos" src="resources\imagesPP\logo_fisc.png" alt="Logo fisc">
+        <img class="footer__logos" src="../resources/Images/imagesPP/logo_fisc.png" alt="Logo fisc">
     </footer>
 </body>
 </html>
