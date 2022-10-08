@@ -1,3 +1,7 @@
+<head>
+    <link rel="stylesheet" href="../resources/styles\estilos personalizados\dev_frtv.css">
+</head>
+
 <a class="header-posicion" href="#">
     <img class="logoutp" src="../resources/Images/imagesPP/logo_utp.jpg" alt="Logo utp">
     <h1>Asistencia UTP</h1>
