@@ -1,3 +1,7 @@
+<head>
+    <link rel="stylesheet" href="../resources/styles\estilos personalizados\dev_frtv.css">
+</head>
+
 <div class="opcion">
     <a class="opc-menu" href="#">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
