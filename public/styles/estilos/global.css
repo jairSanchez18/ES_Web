@@ -1,6 +1,6 @@
 /*COLOR DE LOS BOTONES Y TAMAÑO*/
 .btn-style{
-    font-size: 20px;
+    font-size: 18px;
     padding: 5px 30px;
     background-color: #212529;
     color: white;
@@ -17,13 +17,27 @@
     background-color: #7a1c79;
 }
 
-/*ESTILO DE SUBTITULOS DE LAS PAGINAS WEB*/
-.subtext-style{
+/*ESTILO DE LOS INPUTS*/
+.inputs-style{
+    font-size: 16px;
     font-weight: 600;
-    font-size: 35px;
+    
 }
 
-/*ESTILO DE LOS TEXTOS BASICOS (INPUTS, LABEL, PARRAFOS, ETC...)*/
-.text-style{
+/*ESTILO DE LOS TITULOS*/
+.title-style{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.parrafo-style{
+    font-size: 20px;
+}
+
+.tam-style{
+    font-size: 14px;
+}
+
+.dropdown-item, .dropdown-toggle{
     font-size: 16px;
 }
