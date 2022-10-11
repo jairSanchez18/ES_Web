@@ -16,7 +16,6 @@ html{
 
 body{
     font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
     background-color: var(--grisclaro);
     margin: 0;
 }

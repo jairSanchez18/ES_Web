@@ -1,0 +1,12 @@
+.sesion{
+  margin-left: 400px;
+  margin-right: 400px;
+  padding-top: 5%;
+}
+
+@media (max-width:1190px) {
+  .sesion{
+    margin: 10px;
+    padding-top: 0;
+  }
+}

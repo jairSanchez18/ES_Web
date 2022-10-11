@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina princial</title>
-    <link rel="stylesheet" href="../resources/styles\estilos personalizados\dev_frtv.css">
+    <link rel="stylesheet" href="../public/styles/estilos/frtv.css">
 </head>
 <body>
     <!-- HEADER -->
@@ -26,7 +26,7 @@
     
         <!-- MAIN -->
         <main class="contenido-main">
-            <img class="img-main" src="../resources/Images/imagesPP/imgUTP.jpg" alt="Campus UTP">
+            <img class="img-main" src="../public/images/imagesPP/imgUTP.jpg" alt="Campus UTP">
             <h2 class="titulo-main">Bienvenido Nombre del profesor</h2>
         </main>
     </div> <!-- FIN DE LA CLASE contenido -->
