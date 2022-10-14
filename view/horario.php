@@ -25,7 +25,7 @@
       ?>
     </nav>
     <div class="contenido-main" style="padding: 10px;">
-      <div class="shadow-sm p-3 mb-5 bg-body rounded">
+      <div class="shadow-sm p-3 bg-body rounded">
         <div class="">
           <p class="title-style text-center">Horario de Clases</p>
         </div>
