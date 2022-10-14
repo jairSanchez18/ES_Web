@@ -1,5 +1,5 @@
 <head>
-<link rel="stylesheet" href="../public/styles/estilos/frtv.css">
+    <link rel="stylesheet" href="../public/styles/estilos/frtv.css">
 </head>
 
 <div class="opcion">
