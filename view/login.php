@@ -7,13 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio de Sesion</title>
 
-  <link rel="stylesheet" href="public/styles/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="public/styles/estilos/global.css">
-  <link rel="stylesheet" href="public/styles/estilos/sesion.css">
+  <link rel="stylesheet" href="public/styles/bootstrap/bootstrap.min.css">
   <script src="public/styles/bootstrap/bootstrap.bundle.min.js"></script>
+
+  <style>
+    .sesionstyle {
+      margin: 50px 400px 0 400px;
+    }
+
+    @media (max-width:1080px) {
+      .sesionstyle {
+        margin: 10px;
+      }
+    }
+  </style>
 </head>
 
-<body class="sesion bg-dark">
+<body class="bg-dark sesionstyle">
   <div class="bg-white text-center p-4 box-style">
     <a href="./?op=vlogin">
       <img src="public/Images/utp.svg" alt="" srcset="" width="150px" height="150px">
