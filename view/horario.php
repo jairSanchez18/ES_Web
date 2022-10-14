@@ -97,7 +97,7 @@
         </table>
       </div>
     </div>
-
+  </div>
     <footer class="footer">
       <?php
       require_once('./template/footer.php');
