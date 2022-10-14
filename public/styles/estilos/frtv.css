@@ -162,3 +162,13 @@ header{
         margin: .5rem;
     }
 }
+
+.inputs-style{
+    font-size: 16px;
+    font-weight: 600;
+    
+}
+
+.tam-style{
+    font-size: 14px;
+}
