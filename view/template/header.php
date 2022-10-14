@@ -1,5 +1,6 @@
 <head>
     <link rel="stylesheet" href="../public/styles/estilos/frtv.css">
+    <link rel="stylesheet" href="../public/styles/bootstrap/bootstrap.min.css">
 </head>
 
 <a class="header-posicion" href="#">
