@@ -7,21 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Horario de clases</title>
 
-  <link rel="stylesheet" href="../public/styles/bootstrap/bootstrap.min.css">
-  <script src="../public/styles/bootstrap/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="../public/styles/estilos/global.css">
+  <link rel="stylesheet" href="public/styles/bootstrap/bootstrap.min.css">
+  <script src="public/styles/bootstrap/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="public/styles/estilos/global.css">
 </head>
 
 <body>
   <header>
     <?php
-    require_once('./template/header.php');
+    require_once('template/header.php');
     ?>
   </header>
   <div class="contenido contenedor">
     <nav class="navegacion contenedor">
       <?php
-      require_once('./template/menu.php');
+      require_once('template/menu.php');
       ?>
     </nav>
     <div class="contenido-main" style="padding: 10px;">
@@ -100,7 +100,7 @@
   </div>
     <footer class="footer">
       <?php
-      require_once('./template/footer.php');
+      require_once('template/footer.php');
       ?>
     </footer>
 </body>

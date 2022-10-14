@@ -9,22 +9,22 @@
     <link rel="stylesheet" href="dev_cefv.css" type="text/css">
     <meta name="viewport" content="width=device-with, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../public/styles/bootstrap/bootstrap.min.css">
-    <script src="../public/styles/bootstrap/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../public/styles/estilos/global.css">
+    <link rel="stylesheet" href="public/styles/bootstrap/bootstrap.min.css">
+    <script src="public/styles/bootstrap/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="public/styles/estilos/global.css">
     </script>
 </head>
 
 <body class="">
     <header>
         <?php
-        require_once('./template/header.php');
+        require_once('template/header.php');
         ?>
     </header>
     <div class="contenido contenedor">
         <nav class="navegacion contenedor">
             <?php
-            require_once('./template/menu.php');
+            require_once('template/menu.php');
             ?>
         </nav>
         <div class="contenido-main" style="padding: 10px;">
@@ -66,12 +66,12 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
                             <td>Keneth</td>
                             <td>Sanchez</td>
                             <td>ksan@utp</td>
+                            <td>X-XXX-XXXX</td>
                             <td>
-                                <img src="../public/Images/asistio.png" alt="" srcset="" width="20">
+                                <img src="public/Images/asistio.png" alt="" srcset="" width="20">
                             </td>
                             <td>5%</td>
                             <form action="#">
@@ -80,21 +80,21 @@
                             </form>
                         </tr>
                         <tr>
-                            <th scope="row">2</th>
                             <td>Keneth</td>
                             <td>Sanchez</td>
                             <td>ksan@utp</td>
-                            <td><img src="../public/Images/falto.png" alt="" srcset="" width="20"></td>
+                            <td>X-XXX-XXXX</td>
+                            <td><img src="public/Images/falto.png" alt="" srcset="" width="20"></td>
                             <td>5%</td>
                             <td><input type="text" class="inputs-style" name="" id=""></td>
                             <td><button type="submit" class="btn btn-success tam-style">Guardar cambios</button></td>
                         </tr>
                         <tr>
-                            <th scope="row">3</th>
                             <td>Keneth</td>
                             <td>Sanchez</td>
                             <td>ksan@utp</td>
-                            <td><img src="../public/Images/tardanza.png" alt="" srcset="" width="20"></td>
+                            <td>X-XXX-XXXX</td>
+                            <td><img src="public/Images/tardanza.png" alt="" srcset="" width="20"></td>
                             <td>5%</td>
                             <td><input type="text" class="inputs-style" name="" id=""></td>
                             <td><button type="submit" class="btn btn-success tam-style">Guardar cambios</button></td>
@@ -107,7 +107,7 @@
     </div>
     <footer class="footer">
         <?php
-        require_once('./template/footer.php');
+        require_once('template/footer.php');
         ?>
     </footer>
 </body>

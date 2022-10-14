@@ -10,28 +10,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perfil de usuario</title>
 
-  <link rel="stylesheet" href="../public/styles/bootstrap/bootstrap.min.css">
-  <script src="../public/styles/bootstrap/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="../public/styles/estilos/global.css">
+  <link rel="stylesheet" href="public/styles/bootstrap/bootstrap.min.css">
+  <script src="public/styles/bootstrap/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="public/styles/estilos/global.css">
 </head>
 
 <body>
   <header>
     <?php
-    require_once('./template/header.php');
+    require_once('template/header.php');
     ?>
   </header>
   <div class="contenido contenedor">
     <nav class="navegacion contenedor">
       <?php
-      require_once('./template/menu.php');
+      require_once('template/menu.php');
       ?>
     </nav>
     <div class="contenido-main" style="padding: 10px;">
       <div class="shadow-sm p-3 bg-body rounded">
         <p class="title-style text-center">Bienvenido a su perfil</p>
         <div class="text-center">
-          <img src="../public/Images/imagesPP/icon-user.png" alt="Foto de perfil" width="200" height="200">
+          <img src="public/Images/imagesPP/icon-user.png" alt="Foto de perfil" width="200" height="200">
           <div class="mb-3">
             <label for="nombre_usr" class="form-label font-weight-bold parrafo-style">Hernán Hernández</label>
           </div>
@@ -74,7 +74,7 @@
 
   <footer class="footer">
     <?php
-    require_once('./template/footer.php');
+    require_once('template/footer.php');
     ?>
   </footer>
 </body>
