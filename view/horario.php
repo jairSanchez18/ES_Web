@@ -10,6 +10,54 @@
   <link rel="stylesheet" href="public/styles/bootstrap/bootstrap.min.css">
   <script src="public/styles/bootstrap/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="public/styles/estilos/global.css">
+
+  <style>
+    @media (min-width:899px) {
+
+      table th {
+        border-bottom: 3px solid green;
+        padding: 5px;
+        width: 1080px;
+      }
+
+      table td {
+        border-bottom: 1px solid green;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width:900px) {
+      #div1 {
+        width: 430px;
+        overflow-x: auto;
+      }
+
+      table {
+        font-size: 14px;
+      }
+
+      th {
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+
+      table th {
+        border-bottom: 3px solid green;
+      }
+
+      table td {
+        border-bottom: 1px solid green;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -39,70 +87,76 @@
             <li><a class="dropdown-item" href="#">1LS222</a></li>
           </ul>
         </div>
-        <table class="table table-primary">
-          <tr>
-            <th>Hora</th>
-            <th>Lunes</th>
-            <th>Martes</th>
-            <th>Miércoles</th>
-            <th>Jueves</th>
-            <th>Viernes</th>
-            <th>Sábado</th>
-          </tr>
-          <tr>
-            <td>7:00 AM - 8:00 AM</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-          </tr>
-          <tr>
-            <td>7:00 AM - 8:00 AM</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-          </tr>
-          <tr>
-            <td>7:00 AM - 8:00 AM</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-          </tr>
-          <tr>
-            <td>7:00 AM - 8:00 AM</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-          </tr>
-          <tr>
-            <td>7:00 AM - 8:00 AM</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-            <td>Español</td>
-          </tr>
-        </table>
+        <div id="div1">
+          <table class="text-center">
+            <thead>
+              <tr>
+                <th>Hora</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+                <th>Sábado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>7:00 AM - 8:00 AM</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+              </tr>
+              <tr>
+                <td>7:00 AM - 8:00 AM</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+              </tr>
+              <tr>
+                <td>7:00 AM - 8:00 AM</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+              </tr>
+              <tr>
+                <td>7:00 AM - 8:00 AM</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+              </tr>
+              <tr>
+                <td>7:00 AM - 8:00 AM</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+                <td>Español</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-    <footer class="footer">
-      <?php
-      require_once('template/footer.php');
-      ?>
-    </footer>
+  <footer class="footer">
+    <?php
+    require_once('template/footer.php');
+    ?>
+  </footer>
 </body>
 
 </html>

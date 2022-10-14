@@ -12,7 +12,52 @@
     <link rel="stylesheet" href="public/styles/bootstrap/bootstrap.min.css">
     <script src="public/styles/bootstrap/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="public/styles/estilos/global.css">
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @media (min-width:899px) {
+
+            table th {
+                border-bottom: 3px solid green;
+                padding: 5px;
+                width: 1080px;
+            }
+
+            table td {
+                border-bottom: 1px solid green;
+                padding: 5px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width:900px) {
+            #div1 {
+                width: 430px;
+                overflow-x: auto;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th {
+                padding-left: 60px;
+                padding-right: 60px;
+            }
+
+            table th {
+                border-bottom: 3px solid green;
+            }
+
+            table td {
+                border-bottom: 1px solid green;
+                padding: 5px;
+            }
+        }
+    </style>
 </head>
 
 <body class="">
@@ -50,58 +95,63 @@
                         <li><a class="dropdown-item" href="#">01/02/2022</a></li>
                     </ul>
                 </div>
+                <div id="div1">
+                    <table class="text-center">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Correo</th>
+                                <th>Cédula</th>
+                                <th>Asistencia</th>
+                                <th>Porcentaje</th>
+                                <th>Observaciones</th>
+                                <th>Guardar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Keneth</td>
+                                <td>Sanchez</td>
+                                <td>ksan@utp</td>
+                                <td>X-XXX-XXXX</td>
+                                <td>
+                                    <img src="public/Images/asistio.png" alt="" srcset="" width="20">
+                                </td>
+                                <td>5%</td>
+                                <form action="#" method="POST">
+                                    <td><input type="text" class="inputs-style" name="" id=""></td>
+                                    <td><button type="submit" class="btn btn-success tam-style"><i class="fa-solid fa-floppy-disk"></i></button></td>
+                                </form>
+                            </tr>
+                            <tr>
+                                <td>Keneth</td>
+                                <td>Sanchez</td>
+                                <td>ksan@utp</td>
+                                <td>X-XXX-XXXX</td>
+                                <td><img src="public/Images/falto.png" alt="" srcset="" width="20"></td>
+                                <td>5%</td>
+                                <form action="#" method="POST">
+                                    <td><input type="text" class="inputs-style" name="" id=""></td>
+                                    <td><button type="submit" class="btn btn-success tam-style"><i class="fa-solid fa-floppy-disk"></i></button></td>
+                                </form>
 
-                <table class="table text-center">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Correo</th>
-                            <th>Cédula</th>
-                            <th>Asistencia</th>
-                            <th>Porcentaje</th>
-                            <th>Observaciones</th>
-                            <th>Guardar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Keneth</td>
-                            <td>Sanchez</td>
-                            <td>ksan@utp</td>
-                            <td>X-XXX-XXXX</td>
-                            <td>
-                                <img src="public/Images/asistio.png" alt="" srcset="" width="20">
-                            </td>
-                            <td>5%</td>
-                            <form action="#">
-                                <td><input type="text" class="inputs-style" name="" id=""></td>
-                                <td><button type="submit" class="btn btn-success tam-style">Guardar cambios</button></td>
-                            </form>
-                        </tr>
-                        <tr>
-                            <td>Keneth</td>
-                            <td>Sanchez</td>
-                            <td>ksan@utp</td>
-                            <td>X-XXX-XXXX</td>
-                            <td><img src="public/Images/falto.png" alt="" srcset="" width="20"></td>
-                            <td>5%</td>
-                            <td><input type="text" class="inputs-style" name="" id=""></td>
-                            <td><button type="submit" class="btn btn-success tam-style">Guardar cambios</button></td>
-                        </tr>
-                        <tr>
-                            <td>Keneth</td>
-                            <td>Sanchez</td>
-                            <td>ksan@utp</td>
-                            <td>X-XXX-XXXX</td>
-                            <td><img src="public/Images/tardanza.png" alt="" srcset="" width="20"></td>
-                            <td>5%</td>
-                            <td><input type="text" class="inputs-style" name="" id=""></td>
-                            <td><button type="submit" class="btn btn-success tam-style">Guardar cambios</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-                </section>
+                            </tr>
+                            <tr>
+                                <td>Keneth</td>
+                                <td>Sanchez</td>
+                                <td>ksan@utp</td>
+                                <td>X-XXX-XXXX</td>
+                                <td><img src="public/Images/tardanza.png" alt="" srcset="" width="20"></td>
+                                <td>5%</td>
+                                <form action="#" method="POST">
+                                    <td><input type="text" class="inputs-style" name="" id=""></td>
+                                    <td><button type="submit" class="btn btn-success tam-style"><i class="fa-solid fa-floppy-disk"></i></button></td>
+                                </form>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
