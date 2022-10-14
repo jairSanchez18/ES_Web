@@ -127,7 +127,7 @@ header{
 }
 
 .titulo-main{
-    margin-top: 10%;
+    margin-top: 20px;
 }
 
 /* FOOTER */
@@ -171,4 +171,8 @@ header{
 
 .tam-style{
     font-size: 14px;
+}
+
+.dropdown-item, .dropdown-toggle{
+    font-size: 16px;
 }

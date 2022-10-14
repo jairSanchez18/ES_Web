@@ -24,7 +24,7 @@
             ?>
         </nav>
         <div class="contenido-main" style="padding: 10px;">
-            <div class="shadow-sm p-3 mb-5 bg-body rounded">
+            <div class="shadow-sm p-3 bg-body rounded">
                 <div class="text-center">
                     <p class="title-style text-center">Solicitudes</p>
                 </div>

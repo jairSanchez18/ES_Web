@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,12 @@
     <title>Pagina princial</title>
     <link rel="stylesheet" href="../public/styles/estilos/frtv.css">
 </head>
+
 <body>
     <!-- HEADER -->
     <header>
         <?php
-            require_once('./template/header.php');
+        require_once('./template/header.php');
         ?>
     </header>
 
@@ -20,22 +22,25 @@
         <!-- NAVEGACIÓN -->
         <nav class="navegacion contenedor">
             <?php
-                require_once('./template/menu.php');
+            require_once('./template/menu.php');
             ?>
         </nav>
-    
+
         <!-- MAIN -->
         <main class="contenido-main">
-            <img class="img-main" src="../public/images/imagesPP/imgUTP.jpg" alt="Campus UTP">
-            <h2 class="titulo-main">Bienvenido Nombre del profesor</h2>
+            <div class="shadow-sm p-3 bg-body rounded">
+                <img class="img-main" src="../public/images/imagesPP/imgUTP.jpg" alt="Campus UTP">
+                <h2 class="titulo-main">Bienvenido Nombre del profesor</h2>
+            </div>
         </main>
     </div> <!-- FIN DE LA CLASE contenido -->
 
     <!-- FOOTER -->
     <footer class="footer">
         <?php
-            require_once('./template/footer.php');
+        require_once('./template/footer.php');
         ?>
     </footer>
 </body>
+
 </html>

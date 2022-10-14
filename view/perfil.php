@@ -28,7 +28,7 @@
       ?>
     </nav>
     <div class="contenido-main" style="padding: 10px;">
-      <div class="shadow-sm p-3 mb-5 bg-body rounded">
+      <div class="shadow-sm p-3 bg-body rounded">
         <p class="title-style text-center">Bienvenido a su perfil</p>
         <div class="text-center">
           <img src="../public/Images/imagesPP/icon-user.png" alt="Foto de perfil" width="200" height="200">
