@@ -10,28 +10,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perfil de usuario</title>
 
-  <link rel="stylesheet" href="../public/styles/bootstrap/bootstrap.min.css">
-  <script src="../public/styles/bootstrap/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="../public/styles/estilos/global.css">
+  <link rel="stylesheet" href="public/styles/bootstrap/bootstrap.min.css">
+  <script src="public/styles/bootstrap/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="public/styles/estilos/global.css">
 </head>
 
 <body>
   <header>
     <?php
-    require_once('./template/header.php');
+    require_once('template/header.php');
     ?>
   </header>
   <div class="contenido contenedor">
     <nav class="navegacion contenedor">
       <?php
-      require_once('./template/menu.php');
+      require_once('template/menu.php');
       ?>
     </nav>
     <div class="contenido-main" style="padding: 10px;">
       <div class="shadow-sm p-3 bg-body rounded">
         <p class="title-style text-center">Bienvenido a su perfil</p>
         <div class="text-center">
-          <img src="../public/Images/imagesPP/icon-user.png" alt="Foto de perfil" width="200" height="200">
+          <img src="public/Images/imagesPP/icon-user.png" alt="Foto de perfil" width="200" height="200">
           <div class="mb-3">
             <label for="nombre_usr" class="form-label font-weight-bold parrafo-style">Hernán Hernández</label>
           </div>
@@ -58,10 +58,18 @@
           </div>
         </div>
         <div class="mb-3">
+          <label for="correo_usr" class="form-label font-weight-bold parrafo-style">Correo Electronico:</label>
+          <br>
+          <div class="d-grid gap-2 mb-3">
+            <input type="email" class="inputs-style" placeholder="correo@hotmail.com" disabled>
+          </div>
+        </div>
+        <div class="mb-3">
           <form action="#">
             <label for="exampleInputPassword1" class="form-label font-weight-bold parrafo-style">Cambiar contraseña</label>
-            <input type="email" name="correo" placeholder="Ingrese su correo" class="form-control mb-3 inputs-style" required>
-            <input type="password" name="password" placeholder="Ingrese su contraseña" class="form-control mb-3 inputs-style" required><br>
+            <input type="password" name="password1" placeholder="Contraseña actual" class="form-control mb-3 inputs-style" required>
+            <input type="password" name="password2" placeholder="Nueva contraseña" class="form-control mb-3 inputs-style" required>
+            <input type="password" name="password3" placeholder="Repetir contraseña" class="form-control mb-3 inputs-style" required><br>
             <div class="d-grid gap-2 mb-3">
               <button type="submit" class="btn-style">Guardar cambios</button>
             </div>
@@ -74,7 +82,7 @@
 
   <footer class="footer">
     <?php
-    require_once('./template/footer.php');
+    require_once('template/footer.php');
     ?>
   </footer>
 </body>
