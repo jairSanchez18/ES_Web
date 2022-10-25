@@ -31,11 +31,10 @@
     </a>
     <p class="title-style">Inicio de Sesion</p>
     <hr>
-    <p class="text-danger"> <?php if (isset($_GET['msg'])) echo $_GET['msg']; ?> </p>
-    <p class="text-success"> <?php if (isset($_GET['msg2'])) echo $_GET['msg2']; ?> </p>
-    <form action="#" method="post" class="mb-4">
+    <p class="<?php if (isset($_GET['t'])) echo $_GET['t']; ?>"> <?php if (isset($_GET['msg'])) echo $_GET['msg']; ?> </p>
+    <form action="./?op=validar" method="POST" class="mb-4">
       <input type="email" name="correo" placeholder="Ingrese su correo" class="form-control mb-3 inputs-style">
-      <input type="password" name="password" placeholder="Ingrese su contraseña" class="form-control mb-3 inputs-style">
+      <input type="password" name="contrasena" placeholder="Ingrese su contraseña" class="form-control mb-3 inputs-style">
 
       <div class="d-grid gap-2 mb-3">
         <button type="submit" class="btn-style">Iniciar Sesion</button>
