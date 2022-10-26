@@ -9,6 +9,7 @@ class Controller
     private $pdo;
 
     private $LoginModel;
+    private $PerfilModel;
 
     public function __construct()
     {
@@ -41,7 +42,15 @@ class Controller
     public function Perfil()
     {
         if($_SESSION['acceso'] != true){
-            require('view/login.php');
+            $PerfilData = new PerfilModel();
+
+            $PerfilData->cedula = $_REQUEST['cedula'];
+            $PerfilData->facultad = $_REQUEST['facultad'];
+    
+            if ($resp = $this->PerfilModel->VerPerfil($PerfilData)) {
+                $_SESSION['cedula'] = $resp->cedula;
+    
+            } 
         }else{
             require('view/perfil.php');
         }

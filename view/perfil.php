@@ -33,14 +33,14 @@
         <div class="text-center">
           <img src="public/Images/imagesPP/icon-user.png" alt="Foto de perfil" width="200" height="200">
           <div class="mb-3">
-            <label for="nombre_usr" class="form-label font-weight-bold parrafo-style">Hernán Hernández</label>
+            <label for="nombre_usr" class="form-label font-weight-bold parrafo-style"><?php echo $_SESSION['user_name']; ?></label>
           </div>
         </div>
         <div class="mb-3">
           <label for="cedula_usr" class="form-label font-weight-bold parrafo-style">Cedula:</label>
           <br>
           <div class="d-grid gap-2 mb-3">
-            <input type="text" class="inputs-style" placeholder="X-XXX-XXXX" disabled>
+            <input type="text" class="inputs-style" placeholder="<?php echo  $_SESSION['cedula']; ?>" disabled>
           </div>
         </div>
         <div class="mb-3">
