@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,61 +97,7 @@
                     </ul>
                 </div>
                 <div id="div1">
-                    <table class="text-center">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Correo</th>
-                                <th>Cédula</th>
-                                <th>Asistencia</th>
-                                <th>Porcentaje</th>
-                                <th>Observaciones</th>
-                                <th>Guardar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Keneth</td>
-                                <td>Sanchez</td>
-                                <td>ksan@utp</td>
-                                <td>X-XXX-XXXX</td>
-                                <td>
-                                    <img src="public/Images/asistio.png" alt="" srcset="" width="20">
-                                </td>
-                                <td>5%</td>
-                                <form action="#" method="POST">
-                                    <td><input type="text" class="inputs-style" name="" id=""></td>
-                                    <td><button type="submit" class="btn btn-success tam-style"><i class="fa-solid fa-floppy-disk"></i></button></td>
-                                </form>
-                            </tr>
-                            <tr>
-                                <td>Keneth</td>
-                                <td>Sanchez</td>
-                                <td>ksan@utp</td>
-                                <td>X-XXX-XXXX</td>
-                                <td><img src="public/Images/falto.png" alt="" srcset="" width="20"></td>
-                                <td>5%</td>
-                                <form action="#" method="POST">
-                                    <td><input type="text" class="inputs-style" name="" id=""></td>
-                                    <td><button type="submit" class="btn btn-success tam-style"><i class="fa-solid fa-floppy-disk"></i></button></td>
-                                </form>
-
-                            </tr>
-                            <tr>
-                                <td>Keneth</td>
-                                <td>Sanchez</td>
-                                <td>ksan@utp</td>
-                                <td>X-XXX-XXXX</td>
-                                <td><img src="public/Images/tardanza.png" alt="" srcset="" width="20"></td>
-                                <td>5%</td>
-                                <form action="#" method="POST">
-                                    <td><input type="text" class="inputs-style" name="" id=""></td>
-                                    <td><button type="submit" class="btn btn-success tam-style"><i class="fa-solid fa-floppy-disk"></i></button></td>
-                                </form>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div id="tablaDatos"></div>
                 </div>
             </div>
         </div>
@@ -160,6 +107,11 @@
         require_once('template/footer.php');
         ?>
     </footer>
+    <script src="model\js\crud.js"></script>
+    <script type="text/javascript">
+        mostrar();
+    </script>
+
 </body>
 
 </html>
