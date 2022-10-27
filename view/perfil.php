@@ -33,21 +33,22 @@
         <div class="text-center">
           <img src="public/Images/imagesPP/icon-user.png" alt="Foto de perfil" width="200" height="200">
           <div class="mb-3">
-            <label for="nombre_usr" class="form-label font-weight-bold parrafo-style">Hernán Hernández</label>
+            <label for="nombre_usr" class="form-label font-weight-bold parrafo-style"><?php echo $_SESSION['user_name']; ?></label>
           </div>
         </div>
+        <form action="#" method="POST">
         <div class="mb-3">
           <label for="cedula_usr" class="form-label font-weight-bold parrafo-style">Cedula:</label>
           <br>
           <div class="d-grid gap-2 mb-3">
-            <input type="text" class="inputs-style" placeholder="X-XXX-XXXX" disabled>
+            <input type="text" class="inputs-style" placeholder="" value="<?php echo $resp->cedula ?>" disabled>
           </div>
         </div>
         <div class="mb-3">
           <label for="facu_usr" class="form-label font-weight-bold parrafo-style">Facultad: </label>
           <br>
           <div class="d-grid gap-2 mb-3">
-            <input type="text" class="inputs-style" placeholder="Facultad de Ingeniería de Sistemas Computacionales" disabled>
+            <input type="text" class="inputs-style" placeholder="" value="<?php echo $resp->facultad ?>" disabled>
           </div>
         </div>
         <div class="mb-3">
@@ -61,11 +62,11 @@
           <label for="correo_usr" class="form-label font-weight-bold parrafo-style">Correo Electronico:</label>
           <br>
           <div class="d-grid gap-2 mb-3">
-            <input type="email" class="inputs-style" placeholder="correo@hotmail.com" disabled>
+            <input type="email" class="inputs-style" placeholder="" value="<?php echo $resp->correo ?>" disabled>
           </div>
         </div>
         <div class="mb-3">
-          <form action="#">
+          
             <label for="exampleInputPassword1" class="form-label font-weight-bold parrafo-style">Cambiar contraseña</label>
             <input type="password" name="password1" placeholder="Contraseña actual" class="form-control mb-3 inputs-style" required>
             <input type="password" name="password2" placeholder="Nueva contraseña" class="form-control mb-3 inputs-style" required>
