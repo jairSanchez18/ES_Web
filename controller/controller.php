@@ -2,6 +2,7 @@
 session_start();
 
 include 'model/LoginModel.php';
+include 'model/PerfilModel.php';
 
 class Controller
 {
@@ -9,11 +10,12 @@ class Controller
     private $pdo;
 
     private $LoginModel;
-    private $PerfilModel;
+    private $Perfilmodel;
 
     public function __construct()
     {
-        $this->LoginModel = new LoginModel();
+        $this->LoginModel = new LoginModel();        
+        $this->Perfilmodel = new Perfilmodel(); 
     }
 
     public function Asistencia()
@@ -42,19 +44,20 @@ class Controller
     public function Perfil()
     {
         if($_SESSION['acceso'] != true){
-            $PerfilData = new PerfilModel();
-
-            $PerfilData->cedula = $_REQUEST['cedula'];
-            $PerfilData->facultad = $_REQUEST['facultad'];
-    
-            if ($resp = $this->PerfilModel->VerPerfil($PerfilData)) {
-                $_SESSION['cedula'] = $resp->cedula;
-    
-            } 
+            require('view/login.php');
         }else{
+            
+            
+            $PerfilData = new Perfilmodel();
+            $resp = new Perfilmodel();
+
+            $PerfilData->id_profesor = $_SESSION['user_id'];
+    
+            $resp = $this->Perfilmodel->VerPerfil($PerfilData) ;
             require('view/perfil.php');
+            }
         }
-    }
+    
 
     public function Principal()
     {
