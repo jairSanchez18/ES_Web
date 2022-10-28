@@ -33,48 +33,72 @@
         <div class="text-center">
           <img src="public/Images/imagesPP/icon-user.png" alt="Foto de perfil" width="200" height="200">
           <div class="mb-3">
-            <label for="nombre_usr" class="form-label font-weight-bold parrafo-style"><?php echo $_SESSION['user_name']; ?></label>
+            <label for="nombre_usr" class="form-label font-weight-bold parrafo-style"><?php echo $resp->nombre; ?> <?php echo $resp->apellido; ?></label>
+          </div>
+          <br>
+          <p class="<?php if (isset($_GET['t'])) { echo $_GET['t'];} ?>"><?php if (isset($_GET['msg'])) {echo $_GET['msg'];} ?></p>
+        </div>
+        <form action="./?op=vperfila" method="POST">
+        <div class="mb-3">
+          <label for="nombre_usr" class="form-label font-weight-bold parrafo-style">Nombre:</label>
+          <br>
+          <div class="d-grid gap-2 mb-3">
+            <input type="text" class="inputs-style" name="nombre" id="nombre"placeholder="" value="<?php echo $resp->nombre ?>" >
           </div>
         </div>
-        <form action="#" method="POST">
+        <div class="mb-3">
+          <label for="apellido_usr" class="form-label font-weight-bold parrafo-style">Apellido:</label>
+          <br>
+          <div class="d-grid gap-2 mb-3">
+            <input type="text" class="inputs-style" name="apellido" id="apellido"placeholder="" value="<?php echo $resp->apellido ?>" >
+          </div>
+        </div>
         <div class="mb-3">
           <label for="cedula_usr" class="form-label font-weight-bold parrafo-style">Cedula:</label>
           <br>
           <div class="d-grid gap-2 mb-3">
-            <input type="text" class="inputs-style" placeholder="" value="<?php echo $resp->cedula ?>" disabled>
+            <input type="text" class="inputs-style" name="cedula" id="cedula"placeholder="" value="<?php echo $resp->cedula ?>"disabled >
           </div>
         </div>
         <div class="mb-3">
           <label for="facu_usr" class="form-label font-weight-bold parrafo-style">Facultad: </label>
           <br>
           <div class="d-grid gap-2 mb-3">
-            <input type="text" class="inputs-style" placeholder="" value="<?php echo $resp->facultad ?>" disabled>
+            <input type="text" class="inputs-style" name="facultad" id="facultad" placeholder="" value="<?php echo $resp->facultad ?>" >
           </div>
         </div>
         <div class="mb-3">
           <label for="sede_usr" class="form-label font-weight-bold parrafo-style">Sede:</label>
           <br>
           <div class="d-grid gap-2 mb-3">
-            <input type="text" class="inputs-style" placeholder="Panamá" disabled>
+            <input type="text" class="inputs-style" name="direccion" id="direccion" placeholder="" value="<?php echo $resp->direccion?>" >
+          </div>
+          <label for="sede_usr" class="form-label font-weight-bold parrafo-style">Teléfono:</label>
+          <br>
+          <div class="d-grid gap-2 mb-3">
+            <input type="number" class="inputs-style" name="telefono" id="telefono" placeholder="" value="<?php echo $resp->telefono?>" >
           </div>
         </div>
         <div class="mb-3">
           <label for="correo_usr" class="form-label font-weight-bold parrafo-style">Correo Electronico:</label>
           <br>
           <div class="d-grid gap-2 mb-3">
-            <input type="email" class="inputs-style" placeholder="" value="<?php echo $resp->correo ?>" disabled>
+            <input type="email" class="inputs-style" name="correo" id="correo" placeholder="" value="<?php echo $resp->correo ?>" disabled>
           </div>
         </div>
         <div class="mb-3">
-          
+        <button type="submit" class="btn-style">Guardar cambios</button>
+        </form>
+        
+          <form>
             <label for="exampleInputPassword1" class="form-label font-weight-bold parrafo-style">Cambiar contraseña</label>
-            <input type="password" name="password1" placeholder="Contraseña actual" class="form-control mb-3 inputs-style" required>
-            <input type="password" name="password2" placeholder="Nueva contraseña" class="form-control mb-3 inputs-style" required>
-            <input type="password" name="password3" placeholder="Repetir contraseña" class="form-control mb-3 inputs-style" required><br>
+            <input type="password" name="password1" placeholder="Contraseña actual" class="form-control mb-3 inputs-style" >
+            <input type="password" name="password2" placeholder="Nueva contraseña" class="form-control mb-3 inputs-style" >
+            <input type="password" name="password3" placeholder="Repetir contraseña" class="form-control mb-3 inputs-style" ><br>
             <div class="d-grid gap-2 mb-3">
               <button type="submit" class="btn-style">Guardar cambios</button>
             </div>
-          </form>
+</form>
         </div>
       </div>
     </div>

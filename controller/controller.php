@@ -40,7 +40,26 @@ class Controller
     {
         require('view/login.php');
     }
+    public function PerfilA()
+    {
+        if($_SESSION['acceso'] != true){
+            require('view/login.php');
+        }else{
+            $consulta = new Perfilmodel();
 
+            $id = $_SESSION['user_id'];
+            $consulta->nombre = $_REQUEST['nombre'];
+            $consulta->apellido = $_REQUEST['apellido'];
+            $consulta->facultad = $_REQUEST['facultad'];
+            $consulta->direccion = $_REQUEST['direccion'];
+            $consulta->telefono = $_REQUEST['telefono'];
+            
+            $consulta->id = $id;
+            if($this->resp = $this->Perfilmodel->ActualizarPerfil($consulta)){
+                    header('Location: ?op=vperfil&msg='.$this->resp .$id);
+            }
+        }
+    }
     public function Perfil()
     {
         if($_SESSION['acceso'] != true){
