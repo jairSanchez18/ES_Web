@@ -59,14 +59,14 @@
           <label for="nombre_usr" class="form-label font-weight-bold parrafo-style">Nombre:</label>
           <br>
           <div class="d-grid gap-2 mb-3">
-            <input type="text" class="inputs-style form-control" name="nombre" id="nombre" placeholder="" value="<?php echo $resp->nombre ?>">
+            <input type="text" class="inputs-style form-control" name="nombre" id="nombre" placeholder="" value="<?php echo $resp->nombre ?>" required>
           </div>
       </div>
       <div class="mb-3">
         <label for="apellido_usr" class="form-label font-weight-bold parrafo-style">Apellido:</label>
         <br>
         <div class="d-grid gap-2 mb-3">
-          <input type="text" class="inputs-style form-control" name="apellido" id="apellido" placeholder="" value="<?php echo $resp->apellido ?>">
+          <input type="text" class="inputs-style form-control" name="apellido" id="apellido" placeholder="" value="<?php echo $resp->apellido ?>"required>
         </div>
       </div>
       <div class="mb-3">
@@ -80,19 +80,19 @@
         <label for="facu_usr" class="form-label font-weight-bold parrafo-style">Facultad: </label>
         <br>
         <div class="d-grid gap-2 mb-3">
-          <input type="text" class="inputs-style form-control" name="facultad" id="facultad" placeholder="" value="<?php echo $resp->facultad ?>">
+          <input type="text" class="inputs-style form-control" name="facultad" id="facultad" placeholder="" value="<?php echo $resp->facultad ?>"required>
         </div>
       </div>
       <div class="mb-3">
         <label for="sede_usr" class="form-label font-weight-bold parrafo-style">Sede:</label>
         <br>
         <div class="d-grid gap-2 mb-3">
-          <input type="text" class="inputs-style form-control" name="direccion" id="direccion" placeholder="" value="<?php echo $resp->direccion ?>">
+          <input type="text" class="inputs-style form-control" name="direccion" id="direccion" placeholder="" value="<?php echo $resp->direccion ?>"required>
         </div>
         <label for="sede_usr" class="form-label font-weight-bold parrafo-style">Teléfono:</label>
         <br>
         <div class="d-grid gap-2 mb-3">
-          <input type="number" class="inputs-style form-control" name="telefono" id="telefono" placeholder="" value="<?php echo $resp->telefono ?>">
+          <input type="number" class="inputs-style form-control" name="telefono" id="telefono" placeholder="" value="<?php echo $resp->telefono ?>"required>
         </div>
       </div>
       <div class="mb-3">
@@ -108,11 +108,11 @@
         </div>
         </form>
 
-        <form action="#" name="formulario" method="POST" onsubmit="return Validar()">
+        <form action="./?op=vcontrasena" name="formulario" method="POST" onsubmit="return Validar()">
           <label for="exampleInputPassword1" class="form-label font-weight-bold parrafo-style">Cambiar contraseña</label>
           <input type="password" name="password1" placeholder="Contraseña actual" class="form-control mb-3 inputs-style">
-          <input type="password" name="password2" placeholder="Nueva contraseña" class="form-control mb-3 inputs-style">
-          <input type="password" name="password3" placeholder="Repetir contraseña" class="form-control mb-3 inputs-style"><br>
+          <input type="password" name="password2" placeholder="Nueva contraseña" class="form-control mb-3 inputs-style"required>
+          <input type="password" name="password3" placeholder="Repetir contraseña" class="form-control mb-3 inputs-style"required><br>
           <div class="d-grid gap-2 mb-3">
             <button type="submit" class="btn-style">Guardar contraseña</button>
           </div>

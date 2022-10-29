@@ -21,6 +21,44 @@ class Perfilmodel
             die($e->getMessage());
         }
     }
+    public function Verificarcontraseña(perfilmodel $data)
+    {
+        try {
+            
+            $sql = "SELECT * FROM credenciales WHERE contrasena=? AND id=?";
+            $stm =$this->pdo->prepare($sql);
+            $stm->execute(
+                array(
+                    $data->contrasena,
+                    $data-$id
+                )
+                );
+            return$stm->fetch(PDO::FETCH_OBJ);
+            
+        } catch (Exception $e) {
+            die($e->getMessage());
+           
+    }
+}
+
+public function Actualizarcontrasena(perfilmodel $data)
+    {
+        try {
+            $sql = "UPDATE credenciales SET contrasena=? WHERE id=?";
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute(array(
+                $data->contrasenanueva,
+                $data->id
+            ));
+
+            return $this->msg = "Informacion de perfil actualizada con exito&t=text-success";
+        } catch (Exception $e) {
+            die($e->getMessage());
+            return $this->msg = "Ocurrio un error al actualizar la informacion, Intente nuevamente&t=text-danger";
+        }
+    }
+
+
 
     public function ActualizarPerfil(perfilmodel $data)
     {

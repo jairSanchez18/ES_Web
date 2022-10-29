@@ -42,6 +42,26 @@ class Controller
     {
         require('view/login.php');
     }
+    public function  Actualizarcontrasena()
+    {
+        if ($_SESSION['acceso'] != true) {
+            require('view/login.php');
+        } else {
+            $consulta = new Perfilmodel();
+
+            $id = $_SESSION['user_id'];
+            $consulta->contrasenavieja = $_REQUEST['password1'];
+            $consulta->contrasenanueva = $_REQUEST['password2'];
+            $consulta->id = $id;
+
+            if ($this->resp = $this->Perfilmodel->Actualizarcontrasena($consulta)) {
+                header('Location: ?op=vperfil&msg=' . $this->resp);
+
+                $_SESSION['user_name'] = $consulta->nombre . " " . $consulta->apellido;
+            }
+        }
+    }
+
     public function PerfilA()
     {
         if ($_SESSION['acceso'] != true) {

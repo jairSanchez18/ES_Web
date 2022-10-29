@@ -25,6 +25,8 @@ if(isset($_GET['op'])){
         $controller->ValidarLogin();
     }else if ($opcion == "vperfila"){
         $controller->PerfilA();
+    }else if ($opcion == "vcontrasena"){
+        $controller->Actualizarcontrasena();   
         
     }else if ($opcion == "vsalir"){
         $controller->CerrarSesion();
