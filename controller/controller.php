@@ -2,11 +2,7 @@
 session_start();
 
 include 'model/LoginModel.php';
-<<<<<<< HEAD
-include 'model/HorarioModel.php';
-=======
 include 'model/PerfilModel.php';
->>>>>>> 13acf104365f8011d26b1d41e4be008162c070c6
 
 class Controller
 {
@@ -14,23 +10,15 @@ class Controller
     private $pdo;
 
     private $LoginModel;
-<<<<<<< HEAD
-    private $horarioModel;
     private $salonesModel;
-
-    public function __construct()
-    {
-        $this->LoginModel = new LoginModel();
-        $this->horarioModel = new Horario();
-        $this->salonesModel = new Horario();
-=======
     private $Perfilmodel;
 
     public function __construct()
     {
-        $this->LoginModel = new LoginModel();        
-        $this->Perfilmodel = new Perfilmodel(); 
+        $this->LoginModel = new LoginModel();
+        $this->Perfilmodel = new Perfilmodel();
     }
+
 
     public function Asistencia()
     {
@@ -45,7 +33,7 @@ class Controller
     {
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
+        } else {
             require('view/horario.php');
         }
     }
@@ -69,7 +57,7 @@ class Controller
             $consulta->telefono = $_REQUEST['telefono'];
 
             $consulta->id = $id;
-            
+
             if ($this->resp = $this->Perfilmodel->ActualizarPerfil($consulta)) {
                 header('Location: ?op=vperfil&msg=' . $this->resp);
 
