@@ -3,6 +3,7 @@
 include 'model/database.php';
 
 class LoginModel
+
 {
 
     //DE LA BASE DE DATOS
