@@ -26,23 +26,22 @@ class Perfilmodel
     {
         try {
             $sql = "UPDATE profesor SET nombre=?, apellido=?,  facultad=?, direccion=?, telefono=?  WHERE id=?";
-              $stm = $this->pdo->prepare($sql);
-              $stm->execute(array(
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute(array(
                 $data->nombre,
                 $data->apellido,
-               $data->facultad,
-               $data->direccion,
-               $data->telefono,
-               
+                $data->facultad,
+                $data->direccion,
+                $data->telefono,
+
                 $data->id
             ));
 
-            return $this->msg ="prueba si actualiza&t=text-success";
+            return $this->msg = "Informacion de perfil actualizada con exito&t=text-success";
         } catch (Exception $e) {
             die($e->getMessage());
-            return $this->msg ="prueba no actualiza&t=text-danger";
+            return $this->msg = "Ocurrio un error al actualizar la informacion, Intente nuevamente&t=text-danger";
         }
-        
     }
 
     public function VerPerfil(perfilmodel $data)

@@ -14,24 +14,24 @@ class Controller
 
     public function __construct()
     {
-        $this->LoginModel = new LoginModel();        
-        $this->Perfilmodel = new Perfilmodel(); 
+        $this->LoginModel = new LoginModel();
+        $this->Perfilmodel = new Perfilmodel();
     }
 
     public function Asistencia()
     {
-        if($_SESSION['acceso'] != true){
+        if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
+        } else {
             require('view/asistencia.php');
         }
     }
 
     public function Horario()
     {
-        if($_SESSION['acceso'] != true){
+        if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
+        } else {
             require('view/horario.php');
         }
     }
@@ -42,9 +42,9 @@ class Controller
     }
     public function PerfilA()
     {
-        if($_SESSION['acceso'] != true){
+        if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
+        } else {
             $consulta = new Perfilmodel();
 
             $id = $_SESSION['user_id'];
@@ -53,36 +53,38 @@ class Controller
             $consulta->facultad = $_REQUEST['facultad'];
             $consulta->direccion = $_REQUEST['direccion'];
             $consulta->telefono = $_REQUEST['telefono'];
-            
+
             $consulta->id = $id;
-            if($this->resp = $this->Perfilmodel->ActualizarPerfil($consulta)){
-                    header('Location: ?op=vperfil&msg='.$this->resp .$id);
+            
+            if ($this->resp = $this->Perfilmodel->ActualizarPerfil($consulta)) {
+                header('Location: ?op=vperfil&msg=' . $this->resp);
+
+                $_SESSION['user_name'] = $consulta->nombre . " " . $consulta->apellido;
             }
         }
     }
     public function Perfil()
     {
-        if($_SESSION['acceso'] != true){
+        if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
-            
-            
+        } else {
             $PerfilData = new Perfilmodel();
             $resp = new Perfilmodel();
 
             $PerfilData->id_profesor = $_SESSION['user_id'];
-    
-            $resp = $this->Perfilmodel->VerPerfil($PerfilData) ;
+
+            $resp = $this->Perfilmodel->VerPerfil($PerfilData);
+
             require('view/perfil.php');
-            }
         }
-    
+    }
+
 
     public function Principal()
     {
-        if($_SESSION['acceso'] != true){
+        if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
+        } else {
             require('view/principal.php');
         }
     }
@@ -94,9 +96,9 @@ class Controller
 
     public function Solicitud()
     {
-        if($_SESSION['acceso'] != true){
+        if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
+        } else {
             require('view/solicitud.php');
         }
     }
@@ -131,7 +133,8 @@ class Controller
         }
     }
 
-    public function CerrarSesion(){
+    public function CerrarSesion()
+    {
         @session_destroy();
         require('view/login.php');
     }
