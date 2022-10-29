@@ -23,8 +23,12 @@ if(isset($_GET['op'])){
         $controller->Solicitud();
     }else if ($opcion == "validar"){
         $controller->ValidarLogin();
+    }else if ($opcion == "vperfila"){
+        $controller->PerfilA();
+        
     }else if ($opcion == "vsalir"){
         $controller->CerrarSesion();
+        
     }else{
         $controller->Error();
     }
