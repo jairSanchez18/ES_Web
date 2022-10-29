@@ -2,7 +2,11 @@
 session_start();
 
 include 'model/LoginModel.php';
+<<<<<<< HEAD
+include 'model/HorarioModel.php';
+=======
 include 'model/PerfilModel.php';
+>>>>>>> 13acf104365f8011d26b1d41e4be008162c070c6
 
 class Controller
 {
@@ -10,12 +14,22 @@ class Controller
     private $pdo;
 
     private $LoginModel;
-    private $Perfilmodel;
+<<<<<<< HEAD
+    private $horarioModel;
+    private $salonesModel;
 
     public function __construct()
     {
         $this->LoginModel = new LoginModel();
-        $this->Perfilmodel = new Perfilmodel();
+        $this->horarioModel = new Horario();
+        $this->salonesModel = new Horario();
+=======
+    private $Perfilmodel;
+
+    public function __construct()
+    {
+        $this->LoginModel = new LoginModel();        
+        $this->Perfilmodel = new Perfilmodel(); 
     }
 
     public function Asistencia()
@@ -31,7 +45,7 @@ class Controller
     {
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        } else {
+        }else{
             require('view/horario.php');
         }
     }
