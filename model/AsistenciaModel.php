@@ -1,84 +1,83 @@
 <?php
 
-require_once "model/database.php";
-
-class AsistenciaModel extends DB
+class AsistenciaModel 
 {
-    public function __construct()
+   //DE LA BASE DE DATOS
+   private $pdo;
+   public $result;
+
+   //ESTE CODIGO VA SIEMPRE EN LOS MODEL
+   public function __construct()
+   {
+       try {
+           $this->pdo = DB::DBStart();
+       } catch (Exception $e) {
+           die($e->getMessage());
+       }
+   }
+    public function mostrarDatosEstudiantes(asistenciamodel $data)
     {
-        try {
-            $this->pdo = DB::DBStart();
-        } catch (Exception $e) {
+    try {
+      $sql="SELECT * from estudiante 
+            AS p JOIN credenciales AS c ON p.id = c.id_profesor WHERE p.id=?";
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute(array(
+                $data->id_profesor
+            ));
+            return $stm->fetchAll();
+        } 
+        catch (Exception $e) 
+        {
             die($e->getMessage());
-        }
+        }       
     }
 
-    public function mostrarDatosEstudiantes()
+    public function mostrarDatosAsistencia(asistenciamodel $data2)
     {
-        $sql="SELECT nombre,
-                     apellido,
-                     correo,
-                     cedula,
-                     asistencia
-                     from estudiantes";
-                    $query=DB::DBStart()->prepare($sql);
-                    $query->execute();
-                    return $query->fetchALL();
-                    $query->close();
+    try {
+        $sql2="SELECT * from lista_asist
+              AS p JOIN credenciales AS c ON p.id = c.id_profesor WHERE p.id=?";
+              $stm2 = $this->pdo->prepare($sql2);
+              $stm2->execute(array(
+                $data2->id_profesor
+            ));
+            return $stm2->fetchAll();
+        } 
+    catch (Exception $e) 
+        {
+            die($e->getMessage());
+        }     
+
     }
 
-    public function mostrarDatosAsistencia()
+    public function mostrarDatosHorario(asistenciamodel $data)
     {
-        $sql2="SELECT asistencia,
-                     porcentaje,
-                     observaciones
-                     from lista_asist";
-                     $query=DB::DBStart()->prepare($sql2);
-                     $query->execute();
-                     return $query->fetchALL();
-                     $query->close();
-    }
+    try {
+        $sql="SELECT * from salones
+              AS p JOIN credenciales AS c ON p.id = c.id_profesor WHERE p.id=?";
+              $stm = $this->pdo->prepare($sql);
+              $stm->execute(array(
+                $data->id_profesor
+            ));
+            return $stm->fetchAll();
+        } 
+    catch (Exception $e) 
+        {
+            die($e->getMessage());
+        }     
 
+    }
 
     public function procesos()
     {
-        
-        $datos=mostrarDatosEstudiantes();
-    
-        $tabla='<table class="text-center">
-                <thead>
-                <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Correo</th>
-                <th>Cédula</th>
-                <th>Asistencia</th>
-                <th>Porcentaje</th>
-                <th>Observaciones</th>
-                <th>Guardar</th>
-                </tr>
-                </thead>
-                <tbody>';
-
-            $datosTabla="";
 
             foreach($datos as $key => $value)
             {
-            $datosTabla=$datosTabla.'<tr>
-            <td>'.$value['nombre'].'</td>
-            <td>'.$value['apellido'].'</td>
-            <td>'.$value['correo'].'</td>
-            <td>'.$value['cedula'].'</td>
-            <td>'.$value['asistencia'].'</td>
-            <td>'.$value['porcentaje'].'</td>
-            <form action="#" method="POST">
-                <td><input type="text" class="inputs-style" name="" id=""></td>
-                <td><button type="submit" class="btn btn-success tam-style"><i class="fa-solid fa-floppy-disk"></i></button></td>
-            </form>
-            </tr>';
+            
+                
             }
-            echo $tabla.$datosTabla.'</tbody></table>';
-        }
+            
+    }
 
 }
 

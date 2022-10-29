@@ -80,24 +80,82 @@
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Seleccione el salon de clases
                     </a>
+                    <?php
+                      foreach($resp3 as $mostrar)
+                      {
+                        ?>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">1LS131</a></li>
-                        <li><a class="dropdown-item" href="#">1LS132</a></li>
-                        <li><a class="dropdown-item" href="#">1LS222</a></li>
+                        <li><a class="dropdown-item" href="#"><?php echo $mostrar['salon'] ?></a></li>
+                        <li><a class="dropdown-item" href="#"><?php echo $mostrar['salon'] ?></a></li>
+                        <li><a class="dropdown-item" href="#"><?php echo $mostrar['salon'] ?></a></li>
                     </ul>
+                    <?php
+                      }
+                    ?>
                 </div>
                 <div class="dropdown m-2">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Seleccione la Fecha
                     </a>
+                    <?php
+                      foreach($resp2 as $mostrar)
+                      {
+                        ?>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">02/10/2022</a></li>
-                        <li><a class="dropdown-item" href="#">10/11/2022</a></li>
-                        <li><a class="dropdown-item" href="#">01/02/2022</a></li>
+                        <li><a class="dropdown-item" href="#"><?php echo $mostrar['hora_de_entrada'] ?></a></li>
+                        <li><a class="dropdown-item" href="#"><?php echo $mostrar['hora_de_entrada'] ?></a></li>
+                        <li><a class="dropdown-item" href="#"><?php echo $mostrar['hora_de_entrada'] ?></a></li>
                     </ul>
+                    <?php
+                      }
+                    ?>
                 </div>
                 <div id="div1">
                     <div id="tablaDatos"></div>
+                        <table class="text-center">
+                        <thead>
+                        <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo</th>
+                        <th>Cédula</th>
+                        <th>Asistencia</th>
+                        <th>Porcentaje</th>
+                        <th>Observaciones</th>
+                        <th>Guardar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                    <?php
+                      foreach($resp as $mostrar)
+                      {
+                        ?>
+                        <tr>
+                        <td> <?php echo $mostrar['nombre'] ?> </td>
+                        <td> <?php echo $mostrar['apellido'] ?> </td>
+                        <td> <?php echo $mostrar['correo'] ?> </td>
+                        <td> <?php echo $mostrar['cedula'] ?> </td>
+                        <?php
+                      foreach($resp2 as $mostrar)
+                      {
+                        ?>
+                        <td> <?php echo $mostrar['asistencia'] ?> </td>
+                        <td> <?php echo $mostrar['porcentaje'] ?> </td>
+                        <form action="#" method="POST">
+                        <td><input type="text" class="inputs-style" name="" id=""></td>
+                        <td><button type="submit" class="btn btn-success tam-style"><i class="fa-solid fa-floppy-disk"></i></button></td>   
+                        </tr>    
+                    </form>
+                      
+                    <?php
+                      }
+                    ?>
+                    <?php
+                      }
+                    ?>
+                    </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -107,10 +165,6 @@
         require_once('template/footer.php');
         ?>
     </footer>
-    <script src="model\js\crud.js"></script>
-    <script type="text/javascript">
-        mostrar();
-    </script>
 
 </body>
 

@@ -3,6 +3,7 @@ session_start();
 
 include 'model/LoginModel.php';
 include 'model/PerfilModel.php';
+include 'model/AsistenciaModel.php';
 
 class Controller
 {
@@ -11,11 +12,13 @@ class Controller
 
     private $LoginModel;
     private $Perfilmodel;
+    private $AsistenciaModel;
 
     public function __construct()
     {
         $this->LoginModel = new LoginModel();        
         $this->Perfilmodel = new Perfilmodel(); 
+        $this->AsistenciaModel = new AsistenciaModel();
     }
 
     public function Asistencia()
@@ -23,6 +26,16 @@ class Controller
         if($_SESSION['acceso'] != true){
             require('view/login.php');
         }else{
+            
+            $AsistenciaData = new AsistenciaModel();
+            $resp = new AsistenciaModel();
+
+            $AsistenciaData->id_profesor = $_SESSION['user_id'];
+    
+            $resp = $this->AsistenciaModel->mostrarDatosEstudiantes($AsistenciaData);
+            $resp2 = $this->AsistenciaModel->mostrarDatosAsistencia($AsistenciaData);
+            $resp3 = $this->AsistenciaModel->mostrarDatosHorario($AsistenciaData);
+        
             require('view/asistencia.php');
         }
     }
