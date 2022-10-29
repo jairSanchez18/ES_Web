@@ -82,9 +82,10 @@
             Seleccione el salon de clases
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">1LS131</a></li>
-            <li><a class="dropdown-item" href="#">1LS132</a></li>
-            <li><a class="dropdown-item" href="#">1LS222</a></li>
+            <li><a class="dropdown-item" href="&salon=1">1LS131</a></li>
+            <li><a class="dropdown-item" href="&salon=2">1LS132</a></li>
+            <li><a class="dropdown-item" href="&salon=3">1SF111</a></li>
+            <li><a class="dropdown-item" href="&salon=4">1SF113</a></li>
           </ul>
         </div>
         <div id="div1">
@@ -96,12 +97,29 @@
                 <th>Martes</th>
                 <th>Miércoles</th>
                 <th>Jueves</th>
-                <th>Viernes</th>
-                <th>Sábado</th>
+                <!-- <th>Viernes</th>
+                <th>Sábado</th> -->
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <?php
+              foreach ($tablaHorario as $horario) {
+              ?>
+                  <tr>
+                    <td><?php echo $horario->hora_entrada;?> - <?php echo $horario->hora_salida;?></td>
+                    <td><?php echo $horario->materia; ?> <?php echo $horario->cod_materia; ?></td>
+                    <td><span><?php ?></span></td>
+                    <td><span><?php ?></span></td>
+                    <td><span><?php ?></span></td>
+                    <td><span><?php ?></span></td>
+                    <td><span><?php ?></span></td>
+                  </tr>
+
+              <?php
+              }
+              ?>
+
+              <!-- <tr>
                 <td>7:00 AM - 8:00 AM</td>
                 <td>Español</td>
                 <td>Español</td>
@@ -145,7 +163,7 @@
                 <td>Español</td>
                 <td>Español</td>
                 <td>Español</td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
         </div>

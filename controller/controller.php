@@ -2,6 +2,7 @@
 session_start();
 
 include 'model/LoginModel.php';
+include 'model/HorarioModel.php';
 
 class Controller
 {
@@ -9,10 +10,14 @@ class Controller
     private $pdo;
 
     private $LoginModel;
+    private $horarioModel;
+    private $salonesModel;
 
     public function __construct()
     {
         $this->LoginModel = new LoginModel();
+        $this->horarioModel = new Horario();
+        $this->salonesModel = new Horario();
     }
 
     public function Asistencia()
@@ -29,6 +34,12 @@ class Controller
         if($_SESSION['acceso'] != true){
             require('view/login.php');
         }else{
+            $tablaHorario = new Horario();
+            $tablaHorario = $this->horarioModel->ObtenerHorario();
+
+            $salonesGrupo = new Horario();
+            $salonesGrupo = $this->salonesModel->ObtenerSalones($_SESSION['id']);
+
             require('view/horario.php');
         }
     }
