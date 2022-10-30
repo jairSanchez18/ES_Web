@@ -3,6 +3,7 @@ session_start();
 
 include 'model/LoginModel.php';
 include 'model/PerfilModel.php';
+include 'model/AsistenciaModel.php';
 
 class Controller
 {
@@ -10,30 +11,31 @@ class Controller
     private $pdo;
 
     private $LoginModel;
-<<<<<<< HEAD
     private $horarioModel;
     private $horarioModel1;
     private $horarioModel2;
     private $horarioModel3;
     private $horarioModel4;
-=======
     private $salonesModel;
     private $Perfilmodel;
->>>>>>> 16ededc991347ecab93719b289a79d87016b169b
+    private $AsistenciaModel;
+
+    public function __construct()
+    {
+        $this->LoginModel = new LoginModel();        
+        $this->Perfilmodel = new Perfilmodel(); 
+        $this->AsistenciaModel = new AsistenciaModel();
+    }
 
     public function __construct()
     {
         $this->LoginModel = new LoginModel();
-<<<<<<< HEAD
         $this->horarioModel = new Horario();
         $this->horarioModel1 = new Horario();
         $this->horarioModel2 = new Horario();
         $this->horarioModel3 = new Horario();
         $this->horarioModel4 = new Horario();
-        
-=======
         $this->Perfilmodel = new Perfilmodel();
->>>>>>> 16ededc991347ecab93719b289a79d87016b169b
     }
 
 
@@ -41,6 +43,17 @@ class Controller
     {
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
+        }else{
+            
+            $AsistenciaData = new AsistenciaModel();
+            $resp = new AsistenciaModel();
+
+            $AsistenciaData->id_profesor = $_SESSION['user_id'];
+    
+            $resp = $this->AsistenciaModel->mostrarDatosEstudiantes($AsistenciaData);
+            $resp2 = $this->AsistenciaModel->mostrarDatosAsistencia($AsistenciaData);
+            $resp3 = $this->AsistenciaModel->mostrarDatosHorario($AsistenciaData);
+        
         } else {
             require('view/asistencia.php');
         }
@@ -50,7 +63,6 @@ class Controller
     {
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-<<<<<<< HEAD
         }else{
             $hora = new Horario();
             $hora = $this->horarioModel->ObtenerHorario();
@@ -66,10 +78,7 @@ class Controller
 
             $jueves = new Horario();
             $jueves = $this->horarioModel4->ObtenerHorarioJueves();
-
-=======
         } else {
->>>>>>> 16ededc991347ecab93719b289a79d87016b169b
             require('view/horario.php');
         }
     }
