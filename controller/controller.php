@@ -10,13 +10,30 @@ class Controller
     private $pdo;
 
     private $LoginModel;
+<<<<<<< HEAD
+    private $horarioModel;
+    private $horarioModel1;
+    private $horarioModel2;
+    private $horarioModel3;
+    private $horarioModel4;
+=======
     private $salonesModel;
     private $Perfilmodel;
+>>>>>>> 16ededc991347ecab93719b289a79d87016b169b
 
     public function __construct()
     {
         $this->LoginModel = new LoginModel();
+<<<<<<< HEAD
+        $this->horarioModel = new Horario();
+        $this->horarioModel1 = new Horario();
+        $this->horarioModel2 = new Horario();
+        $this->horarioModel3 = new Horario();
+        $this->horarioModel4 = new Horario();
+        
+=======
         $this->Perfilmodel = new Perfilmodel();
+>>>>>>> 16ededc991347ecab93719b289a79d87016b169b
     }
 
 
@@ -33,7 +50,26 @@ class Controller
     {
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
+<<<<<<< HEAD
+        }else{
+            $hora = new Horario();
+            $hora = $this->horarioModel->ObtenerHorario();
+
+            $lunes = new Horario();
+            $lunes = $this->horarioModel1->ObtenerHorarioLunes();
+
+            $martes = new Horario();
+            $martes = $this->horarioModel2->ObtenerHorarioMartes();
+
+            $miercoles = new Horario();
+            $miercoles = $this->horarioModel3->ObtenerHorarioMiercoles();
+
+            $jueves = new Horario();
+            $jueves = $this->horarioModel4->ObtenerHorarioJueves();
+
+=======
         } else {
+>>>>>>> 16ededc991347ecab93719b289a79d87016b169b
             require('view/horario.php');
         }
     }

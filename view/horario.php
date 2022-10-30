@@ -97,73 +97,49 @@
                 <th>Martes</th>
                 <th>Miércoles</th>
                 <th>Jueves</th>
-                <!-- <th>Viernes</th>
-                <th>Sábado</th> -->
               </tr>
             </thead>
             <tbody>
-              <?php
-              foreach ($tablaHorario as $horario) {
-              ?>
-                  <tr>
-                    <td><?php echo $horario->hora_entrada;?> - <?php echo $horario->hora_salida;?></td>
-                    <td><?php echo $horario->materia; ?> <?php echo $horario->cod_materia; ?></td>
-                    <td><span><?php ?></span></td>
-                    <td><span><?php ?></span></td>
-                    <td><span><?php ?></span></td>
-                    <td><span><?php ?></span></td>
-                    <td><span><?php ?></span></td>
-                  </tr>
 
-              <?php
-              }
-              ?>
+            <!-- 1LS131 -->
+            <?php
+              foreach ($hora as $horario) {
+            ?>     
+            <tr>
+              <td><?php echo $horario->hora_entrada.' - '.$horario->hora_salida;?></td>
+              <td>
+                
+                <?php
+                foreach ($lunes as $horarioLunes) {
+                ?>    
+                  <?php echo $horarioLunes->materia.' '.$horarioLunes->cod_materia;?>
+                <?php
+                }
+                ?>
+              </td>
 
-              <!-- <tr>
-                <td>7:00 AM - 8:00 AM</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-              </tr>
-              <tr>
-                <td>7:00 AM - 8:00 AM</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-              </tr>
-              <tr>
-                <td>7:00 AM - 8:00 AM</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-              </tr>
-              <tr>
-                <td>7:00 AM - 8:00 AM</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-              </tr>
-              <tr>
-                <td>7:00 AM - 8:00 AM</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-                <td>Español</td>
-              </tr> -->
+              <td></td>
+
+              <td>
+                <?php
+                foreach ($miercoles as $horarioMiercoles) {
+                ?>    
+                  <?php echo $horarioMiercoles->materia.' '.$horarioMiercoles->cod_materia;?>
+                <?php
+                }
+                ?>
+              </td>
+              
+              <td></td>
+            </tr>
+            <?php
+            }
+            ?>
+
+                             
+               
+ 
+
             </tbody>
           </table>
         </div>
