@@ -143,7 +143,7 @@
                         <td> <?php echo $mostrar['asistencia'] ?> </td>
                         <td> <?php echo $mostrar['porcentaje'] ?> </td>
                         <form action="#" method="POST">
-                        <td><input type="text" class="inputs-style" name="" id=""></td>
+                        <td><input type="text" class="inputs-style" name="texto" id="texto"></td>
                         <td><button type="submit" class="btn btn-success tam-style"><i class="fa-solid fa-floppy-disk"></i></button></td>   
                         </tr>    
                     </form>

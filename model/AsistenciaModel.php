@@ -68,14 +68,25 @@ class AsistenciaModel
 
     }
 
-    public function procesos()
+    public function Observaciones()
     {
-
-            foreach($datos as $key => $value)
+        try {
+            if(isset($_POST['texto']))
             {
-            
-                
+            $texto = $_POST['texto']; 
+            $sql="INSERT INTO lista_asist(observaciones) VALUES $texto
+                  AS p JOIN estudiante AS c ON p.id = c.id WHERE p.id=?";
+                  $stm = $this->pdo->prepare($sql);
+                  $stm->execute(array(
+                  $data->id_profesor
+                ));
             }
+            } 
+        catch (Exception $e) 
+            {
+                die($e->getMessage());
+            }     
+    
             
     }
 
