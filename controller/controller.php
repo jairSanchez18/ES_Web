@@ -11,13 +11,20 @@ class Controller
 
     private $LoginModel;
     private $horarioModel;
-    private $salonesModel;
+    private $horarioModel1;
+    private $horarioModel2;
+    private $horarioModel3;
+    private $horarioModel4;
 
     public function __construct()
     {
         $this->LoginModel = new LoginModel();
         $this->horarioModel = new Horario();
-        $this->salonesModel = new Horario();
+        $this->horarioModel1 = new Horario();
+        $this->horarioModel2 = new Horario();
+        $this->horarioModel3 = new Horario();
+        $this->horarioModel4 = new Horario();
+        
     }
 
     public function Asistencia()
@@ -34,11 +41,20 @@ class Controller
         if($_SESSION['acceso'] != true){
             require('view/login.php');
         }else{
-            $tablaHorario = new Horario();
-            $tablaHorario = $this->horarioModel->ObtenerHorario();
+            $hora = new Horario();
+            $hora = $this->horarioModel->ObtenerHorario();
 
-            $salonesGrupo = new Horario();
-            $salonesGrupo = $this->salonesModel->ObtenerSalones($_SESSION['id']);
+            $lunes = new Horario();
+            $lunes = $this->horarioModel1->ObtenerHorarioLunes();
+
+            $martes = new Horario();
+            $martes = $this->horarioModel2->ObtenerHorarioMartes();
+
+            $miercoles = new Horario();
+            $miercoles = $this->horarioModel3->ObtenerHorarioMiercoles();
+
+            $jueves = new Horario();
+            $jueves = $this->horarioModel4->ObtenerHorarioJueves();
 
             require('view/horario.php');
         }
