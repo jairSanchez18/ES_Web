@@ -2,7 +2,7 @@
 session_start();
 
 include 'model/LoginModel.php';
-include 'model/HorarioModel.php';
+include 'model/PerfilModel.php';
 
 class Controller
 {
@@ -10,36 +10,47 @@ class Controller
     private $pdo;
 
     private $LoginModel;
+<<<<<<< HEAD
     private $horarioModel;
     private $horarioModel1;
     private $horarioModel2;
     private $horarioModel3;
     private $horarioModel4;
+=======
+    private $salonesModel;
+    private $Perfilmodel;
+>>>>>>> 16ededc991347ecab93719b289a79d87016b169b
 
     public function __construct()
     {
         $this->LoginModel = new LoginModel();
+<<<<<<< HEAD
         $this->horarioModel = new Horario();
         $this->horarioModel1 = new Horario();
         $this->horarioModel2 = new Horario();
         $this->horarioModel3 = new Horario();
         $this->horarioModel4 = new Horario();
         
+=======
+        $this->Perfilmodel = new Perfilmodel();
+>>>>>>> 16ededc991347ecab93719b289a79d87016b169b
     }
+
 
     public function Asistencia()
     {
-        if($_SESSION['acceso'] != true){
+        if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
+        } else {
             require('view/asistencia.php');
         }
     }
 
     public function Horario()
     {
-        if($_SESSION['acceso'] != true){
+        if ($_SESSION['acceso'] != true) {
             require('view/login.php');
+<<<<<<< HEAD
         }else{
             $hora = new Horario();
             $hora = $this->horarioModel->ObtenerHorario();
@@ -56,6 +67,9 @@ class Controller
             $jueves = new Horario();
             $jueves = $this->horarioModel4->ObtenerHorarioJueves();
 
+=======
+        } else {
+>>>>>>> 16ededc991347ecab93719b289a79d87016b169b
             require('view/horario.php');
         }
     }
@@ -64,21 +78,71 @@ class Controller
     {
         require('view/login.php');
     }
+    public function  Actualizarcontrasena()
+    {
+        if ($_SESSION['acceso'] != true) {
+            require('view/login.php');
+        } else {
+            $consulta = new Perfilmodel();
 
+            $id = $_SESSION['user_id'];
+            $consulta->contrasenavieja = $_REQUEST['password1'];
+            $consulta->contrasenanueva = $_REQUEST['password2'];
+            $consulta->id = $id;
+
+            if ($this->resp = $this->Perfilmodel->Actualizarcontrasena($consulta)) {
+                header('Location: ?op=vperfil&msg=' . $this->resp);
+
+                $_SESSION['user_name'] = $consulta->nombre . " " . $consulta->apellido;
+            }
+        }
+    }
+
+    public function PerfilA()
+    {
+        if ($_SESSION['acceso'] != true) {
+            require('view/login.php');
+        } else {
+            $consulta = new Perfilmodel();
+
+            $id = $_SESSION['user_id'];
+            $consulta->nombre = $_REQUEST['nombre'];
+            $consulta->apellido = $_REQUEST['apellido'];
+            $consulta->facultad = $_REQUEST['facultad'];
+            $consulta->direccion = $_REQUEST['direccion'];
+            $consulta->telefono = $_REQUEST['telefono'];
+
+            $consulta->id = $id;
+
+            if ($this->resp = $this->Perfilmodel->ActualizarPerfil($consulta)) {
+                header('Location: ?op=vperfil&msg=' . $this->resp);
+
+                $_SESSION['user_name'] = $consulta->nombre . " " . $consulta->apellido;
+            }
+        }
+    }
     public function Perfil()
     {
-        if($_SESSION['acceso'] != true){
+        if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
+        } else {
+            $PerfilData = new Perfilmodel();
+            $resp = new Perfilmodel();
+
+            $PerfilData->id_profesor = $_SESSION['user_id'];
+
+            $resp = $this->Perfilmodel->VerPerfil($PerfilData);
+
             require('view/perfil.php');
         }
     }
 
+
     public function Principal()
     {
-        if($_SESSION['acceso'] != true){
+        if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
+        } else {
             require('view/principal.php');
         }
     }
@@ -90,9 +154,9 @@ class Controller
 
     public function Solicitud()
     {
-        if($_SESSION['acceso'] != true){
+        if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
+        } else {
             require('view/solicitud.php');
         }
     }
@@ -127,7 +191,8 @@ class Controller
         }
     }
 
-    public function CerrarSesion(){
+    public function CerrarSesion()
+    {
         @session_destroy();
         require('view/login.php');
     }
