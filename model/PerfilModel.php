@@ -21,18 +21,65 @@ class Perfilmodel
             die($e->getMessage());
         }
     }
+    public function Verificarcontraseña(perfilmodel $data)
+    {
+        try {
+            
+            $sql = "SELECT * FROM credenciales WHERE contrasena=? AND id=?";
+            $stm =$this->pdo->prepare($sql);
+            $stm->execute(
+                array(
+                    $data->contrasena,
+                    $data-$id
+                )
+                );
+            return$stm->fetch(PDO::FETCH_OBJ);
+            
+        } catch (Exception $e) {
+            die($e->getMessage());
+           
+    }
+}
+
+public function Actualizarcontrasena(perfilmodel $data)
+    {
+        try {
+            $sql = "UPDATE credenciales SET contrasena=? WHERE id=?";
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute(array(
+                $data->contrasenanueva,
+                $data->id
+            ));
+
+            return $this->msg = "Informacion de perfil actualizada con exito&t=text-success";
+        } catch (Exception $e) {
+            die($e->getMessage());
+            return $this->msg = "Ocurrio un error al actualizar la informacion, Intente nuevamente&t=text-danger";
+        }
+    }
+
+
 
     public function ActualizarPerfil(perfilmodel $data)
     {
-        /*$id = $_SESSION['id_usuario'];
-        $cedula = $_POST['cedula'];
-        $sql = "UPDATE profesor SET cedula='$cedula' WHERE id=?";
-        $res = mysqli_query($pdo, $sql);
-        if ($stm) {
-            echo "<script>alert('se actualizo')</script>";
-        } else {
-            echo "<script>alert('no se actualizo')</script>";
-        }*/
+        try {
+            $sql = "UPDATE profesor SET nombre=?, apellido=?,  facultad=?, direccion=?, telefono=?  WHERE id=?";
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute(array(
+                $data->nombre,
+                $data->apellido,
+                $data->facultad,
+                $data->direccion,
+                $data->telefono,
+
+                $data->id
+            ));
+
+            return $this->msg = "Informacion de perfil actualizada con exito&t=text-success";
+        } catch (Exception $e) {
+            die($e->getMessage());
+            return $this->msg = "Ocurrio un error al actualizar la informacion, Intente nuevamente&t=text-danger";
+        }
     }
 
     public function VerPerfil(perfilmodel $data)
