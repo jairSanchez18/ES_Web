@@ -3,6 +3,7 @@ session_start();
 
 include 'model/LoginModel.php';
 include 'model/PerfilModel.php';
+include 'model/HorarioModel.php';
 
 class Controller
 {
@@ -10,30 +11,23 @@ class Controller
     private $pdo;
 
     private $LoginModel;
-<<<<<<< HEAD
+    private $Perfilmodel;
     private $horarioModel;
     private $horarioModel1;
     private $horarioModel2;
     private $horarioModel3;
     private $horarioModel4;
-=======
-    private $salonesModel;
-    private $Perfilmodel;
->>>>>>> 16ededc991347ecab93719b289a79d87016b169b
 
     public function __construct()
     {
         $this->LoginModel = new LoginModel();
-<<<<<<< HEAD
+        $this->Perfilmodel = new Perfilmodel();
         $this->horarioModel = new Horario();
         $this->horarioModel1 = new Horario();
         $this->horarioModel2 = new Horario();
         $this->horarioModel3 = new Horario();
         $this->horarioModel4 = new Horario();
         
-=======
-        $this->Perfilmodel = new Perfilmodel();
->>>>>>> 16ededc991347ecab93719b289a79d87016b169b
     }
 
 
@@ -50,7 +44,6 @@ class Controller
     {
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-<<<<<<< HEAD
         }else{
             $hora = new Horario();
             $hora = $this->horarioModel->ObtenerHorario();
@@ -67,9 +60,6 @@ class Controller
             $jueves = new Horario();
             $jueves = $this->horarioModel4->ObtenerHorarioJueves();
 
-=======
-        } else {
->>>>>>> 16ededc991347ecab93719b289a79d87016b169b
             require('view/horario.php');
         }
     }
