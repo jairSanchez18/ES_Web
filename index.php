@@ -4,38 +4,34 @@ require('./controller/controller.php');
 
 $controller = new Controller;
 
-if(isset($_GET['op'])){
+if (isset($_GET['op'])) {
     $opcion = $_GET['op'];
 
-    if($opcion == "vasistencia"){
+    if ($opcion == "vasistencia") {
         $controller->Asistencia();
-    }else if ($opcion == "vhorario"){
+    } else if ($opcion == "vhorario") {
         $controller->Horario();
-    }else if ($opcion == "vlogin"){
+    } else if ($opcion == "vlogin") {
         $controller->Login();
-    }else if ($opcion == "vperfil"){
+    } else if ($opcion == "vperfil") {
         $controller->Perfil();
-    }else if ($opcion == "vprincipal"){
+    } else if ($opcion == "vprincipal") {
         $controller->Principal();
-    }else if ($opcion == "vrecuperar"){
+    } else if ($opcion == "vrecuperar") {
         $controller->Recuperar();
-    }else if ($opcion == "vsolicitud"){
+    } else if ($opcion == "vsolicitud") {
         $controller->Solicitud();
-    }else if ($opcion == "validar"){
+    } else if ($opcion == "validar") {
         $controller->ValidarLogin();
-    }else if ($opcion == "vperfila"){
+    } else if ($opcion == "vperfila") {
         $controller->PerfilA();
-    }else if ($opcion == "vcontrasena"){
-        $controller->Actualizarcontrasena();   
-        
-    }else if ($opcion == "vsalir"){
+    } else if ($opcion == "vcontrasena") {
+        $controller->Actualizarcontrasena();
+    } else if ($opcion == "vsalir") {
         $controller->CerrarSesion();
-        
-    }else{
+    } else {
         $controller->Error();
     }
-}else{
+} else {
     $controller->Index();
 }
-
-

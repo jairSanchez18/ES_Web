@@ -3,11 +3,8 @@ session_start();
 
 include 'model/LoginModel.php';
 include 'model/PerfilModel.php';
-<<<<<<< HEAD
 include 'model/HorarioModel.php';
-=======
 include 'model/AsistenciaModel.php';
->>>>>>> 83c069d423f66f12111b001cbd90d9edeb595cb5
 
 class Controller
 {
@@ -15,46 +12,25 @@ class Controller
     private $pdo;
 
     private $LoginModel;
-<<<<<<< HEAD
-    private $Perfilmodel;
-=======
->>>>>>> 83c069d423f66f12111b001cbd90d9edeb595cb5
     private $horarioModel;
     private $horarioModel1;
     private $horarioModel2;
     private $horarioModel3;
     private $horarioModel4;
-<<<<<<< HEAD
-=======
-    private $salonesModel;
     private $Perfilmodel;
     private $AsistenciaModel;
 
     public function __construct()
     {
-        $this->LoginModel = new LoginModel();        
-        $this->Perfilmodel = new Perfilmodel(); 
-        $this->AsistenciaModel = new AsistenciaModel();
-    }
->>>>>>> 83c069d423f66f12111b001cbd90d9edeb595cb5
-
-    public function __construct()
-    {
         $this->LoginModel = new LoginModel();
-<<<<<<< HEAD
         $this->Perfilmodel = new Perfilmodel();
-=======
->>>>>>> 83c069d423f66f12111b001cbd90d9edeb595cb5
         $this->horarioModel = new Horario();
         $this->horarioModel1 = new Horario();
         $this->horarioModel2 = new Horario();
         $this->horarioModel3 = new Horario();
         $this->horarioModel4 = new Horario();
-<<<<<<< HEAD
-        
-=======
         $this->Perfilmodel = new Perfilmodel();
->>>>>>> 83c069d423f66f12111b001cbd90d9edeb595cb5
+        $this->AsistenciaModel = new AsistenciaModel();
     }
 
 
@@ -72,9 +48,9 @@ class Controller
             $resp = $this->AsistenciaModel->mostrarDatosEstudiantes($AsistenciaData);
             $resp2 = $this->AsistenciaModel->mostrarDatosAsistencia($AsistenciaData);
             $resp3 = $this->AsistenciaModel->mostrarDatosHorario($AsistenciaData);
-        
-        } else {
+
             require('view/asistencia.php');
+        
         }
     }
 
@@ -84,24 +60,24 @@ class Controller
             require('view/login.php');
         }else{
             $hora = new Horario();
-            $hora = $this->horarioModel->ObtenerHorario();
-
             $lunes = new Horario();
-            $lunes = $this->horarioModel1->ObtenerHorarioLunes();
-
             $martes = new Horario();
-            $martes = $this->horarioModel2->ObtenerHorarioMartes();
-
             $miercoles = new Horario();
-            $miercoles = $this->horarioModel3->ObtenerHorarioMiercoles();
-
             $jueves = new Horario();
-            $jueves = $this->horarioModel4->ObtenerHorarioJueves();
-<<<<<<< HEAD
+            $viernes = new Horario();
+            $sabado = new Horario();
 
-=======
-        } else {
->>>>>>> 83c069d423f66f12111b001cbd90d9edeb595cb5
+            $data = new Horario();
+            $data->id_profesor = $_SESSION['user_id'];
+
+            $hora = $this->horarioModel->ObtenerHoras($data);
+            $lunes = $this->horarioModel->ObtenerLunes($data);
+            $martes = $this->horarioModel->ObtenerMartes($data);
+            $miercoles = $this->horarioModel->ObtenerMiercoles($data);
+            $jueves = $this->horarioModel->ObtenerJueves($data);
+            $viernes = $this->horarioModel->ObtenerViernes($data);
+            $sabado = $this->horarioModel->ObtenerSabado($data);
+
             require('view/horario.php');
         }
     }
