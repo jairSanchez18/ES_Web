@@ -28,27 +28,43 @@
                 <div class="text-center">
                     <p class="title-style text-center">Solicitudes</p>
                 </div>
-                <form action="#">
-                    <select class="form-select m-2 inputs-style" aria-label="Default">
-                        <option selected>Seleccione el producto</option>
-                        <option value="copias">copias</option>
-                        <option value="cables">cables</option>
-                        <option value="proyector">proyector</option>
-                    </select>
-                    <hr>
+                <p class="text-center <?php if (isset($_GET['t'])) { echo $_GET['t'];} ?>"><?php if (isset($_GET['msg'])) {echo $_GET['msg'];} ?></p>
+                <form action="./?op=enviarsolicitud" method="post">
                     <div class="row input-group">
-                        <div class="col">
-                            <input type="number" class="form-control mb-3 inputs-style" id="floatingInput" placeholder="Ingrese la cantidad">
-                            <input type="text" class="form-control mb-3 inputs-style" id="floatingInput" placeholder="Ingrese el salon de clases">
-                            <input type="text" disabled class="form-control mb-3 inputs-style" id="floatingInput" placeholder="Profesor">
-                            <input type="text" disabled class="form-control mb-3 inputs-style" id="floatingInput" placeholder="Correo">
-                            <input type="date" disabled class="form-control mb-3 inputs-style" id="floatingInput" placeholder="Fecha solicitado">
-                        </div>
-                    </div>
-                    <div class="m-3">
                         <div class="mb-3">
-                            <label for="formFile" class="form-label">Ingrese el archivo</label>
-                            <input class="form-control tam-style" type="file" id="formFile">
+                            <label for="" class="form-label font-weight-bold">Seleccione el producto:</label>
+                            <select class="form-select m-2 inputs-style" name="producto" aria-label="Default">
+                                <?php foreach ($producto as $p) { ?>
+                                    <option value="<?php echo $p->equipo ?>"><?php echo $p->equipo ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label font-weight-bold">Seleccione el salon de clases:</label>
+                            <select name="salon" class="form-select m-2 inputs-style" aria-label="Default">
+                                <?php foreach ($salon as $s) { ?>
+                                    <option value="<?php echo $s->salon ?>"><?php echo $s->salon ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="" class="form-label font-weight-bold">Ingrese la cantidad a solicitar:</label>
+                                <input name="cantidad" type="number" class="form-control mb-3 inputs-style" id="floatingInput" placeholder="">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="" class="form-label font-weight-bold">Profesor que realiza la solicitud:</label>
+                                <input name="profesor" value="<?php echo $_SESSION['user_name']; ?>" disabled type="text" class="form-control mb-3 inputs-style" id="floatingInput" placeholder="Profesor">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label font-weight-bold">Correo del profesor:</label>
+                                <input name="correo" value="<?php echo $datos->correo; ?>" disabled type="text" class="form-control mb-3 inputs-style" id="floatingInput" placeholder="Correo">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label font-weight-bold">Fecha de solicitud:</label>
+                                <input name="fecha" value="<?php echo date("Y-m-d") ?>" type="text" disabled class="form-control mb-3 inputs-style" id="floatingInput" placeholder="Correo">
+                            </div>
                         </div>
                     </div>
                     <div class="text-center d-grid gap-2 mt-2">

@@ -21,6 +21,8 @@ if (isset($_GET['op'])) {
         $controller->Recuperar();
     } else if ($opcion == "vsolicitud") {
         $controller->Solicitud();
+    }else if ($opcion == "enviarsolicitud") {
+        $controller->EnviarSolicitud();
     } else if ($opcion == "validar") {
         $controller->ValidarLogin();
     } else if ($opcion == "vperfila") {

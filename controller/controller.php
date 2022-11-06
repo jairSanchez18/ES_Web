@@ -5,6 +5,7 @@ include 'model/LoginModel.php';
 include 'model/PerfilModel.php';
 include 'model/HorarioModel.php';
 include 'model/AsistenciaModel.php';
+include 'model/SolicitudModel.php';
 
 class Controller
 {
@@ -13,24 +14,18 @@ class Controller
 
     private $LoginModel;
     private $horarioModel;
-    private $horarioModel1;
-    private $horarioModel2;
-    private $horarioModel3;
-    private $horarioModel4;
     private $Perfilmodel;
     private $AsistenciaModel;
+    private $SolicitudModel;
 
     public function __construct()
     {
         $this->LoginModel = new LoginModel();
         $this->Perfilmodel = new Perfilmodel();
         $this->horarioModel = new Horario();
-        $this->horarioModel1 = new Horario();
-        $this->horarioModel2 = new Horario();
-        $this->horarioModel3 = new Horario();
-        $this->horarioModel4 = new Horario();
         $this->Perfilmodel = new Perfilmodel();
         $this->AsistenciaModel = new AsistenciaModel();
+        $this->SolicitudModel = new Solicitud();
     }
 
 
@@ -38,19 +33,18 @@ class Controller
     {
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
-            
+        } else {
+
             $AsistenciaData = new AsistenciaModel();
             $resp = new AsistenciaModel();
 
             $AsistenciaData->id_profesor = $_SESSION['user_id'];
-    
+
             $resp = $this->AsistenciaModel->mostrarDatosEstudiantes($AsistenciaData);
             $resp2 = $this->AsistenciaModel->mostrarDatosAsistencia($AsistenciaData);
             $resp3 = $this->AsistenciaModel->mostrarDatosHorario($AsistenciaData);
 
             require('view/asistencia.php');
-        
         }
     }
 
@@ -58,7 +52,7 @@ class Controller
     {
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
+        } else {
             $hora = new Horario();
             $lunes = new Horario();
             $martes = new Horario();
@@ -86,6 +80,7 @@ class Controller
     {
         require('view/login.php');
     }
+
     public function  Actualizarcontrasena()
     {
         if ($_SESSION['acceso'] != true) {
@@ -165,7 +160,34 @@ class Controller
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
         } else {
+            $producto = $this->SolicitudModel->Productos();
+            $datos = $this->SolicitudModel->ObtenerCorreo($_SESSION['user_id']);
+            $salon = $this->SolicitudModel->Salon($_SESSION['user_id']);
+
             require('view/solicitud.php');
+        }
+    }
+
+    public function EnviarSolicitud(){
+        date_default_timezone_set('America/Panama');
+
+        $solicitud = new Solicitud();
+
+        $solicitud->producto = $_REQUEST['producto'];
+        $solicitud->salon = $_REQUEST['salon'];
+        $solicitud->cantidad = $_REQUEST['cantidad'];
+        $solicitud->id_profesor = $_SESSION['user_id'];
+        $solicitud->fecha_s = date("Y-m-d H:i:s");
+        $solicitud->estado = "Solicitado";
+
+        $resp = $this->SolicitudModel->ValidarCantidad($_REQUEST['producto']);
+
+        if($_REQUEST['cantidad'] <= $resp->cantidad){
+            $solicitud->id_inventario = $resp->id;
+            $this->SolicitudModel->EnviarSolicitud($solicitud);
+            header('Location: ?op=vsolicitud&msg=Solicitud realizada exitosamente&t=text-success');
+        }else{
+            header('Location: ?op=vsolicitud&msg=La cantidad solicitada no se encuentra disponible&t=text-danger');
         }
     }
 
