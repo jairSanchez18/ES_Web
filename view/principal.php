@@ -30,7 +30,7 @@
         <main class="contenido-main">
             <div class="shadow-sm p-3 bg-body rounded">
                 <img class="img-main" src="public/images/imagesPP/imgUTP.jpg" alt="Campus UTP">
-                <h2 class="titulo-main">Bienvenido Nombre del profesor</h2>
+                <h2 class="titulo-main">Bienvenido <?php echo $_SESSION['user_name'] ?></h2>
             </div>
         </main>
     </div> <!-- FIN DE LA CLASE contenido -->

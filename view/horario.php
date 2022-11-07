@@ -13,47 +13,20 @@
 
   <style>
     @media (min-width:899px) {
-
-      table th {
-        border-bottom: 3px solid green;
-        padding: 5px;
-        width: 1080px;
-      }
-
-      table td {
-        border-bottom: 1px solid green;
-        padding-top: 8px;
-        padding-bottom: 8px;
-      }
-
-      table {
-        font-size: 14px;
+      #div1{
+        margin: 10px;
+        font-size: 12px;
       }
     }
 
     @media (max-width:900px) {
       #div1 {
-        width: 430px;
+        margin: 2px;
         overflow-x: auto;
       }
 
-      table {
-        font-size: 14px;
-      }
-
-      th {
-        padding-left: 60px;
-        padding-right: 60px;
-      }
-
-      table th {
-        border-bottom: 3px solid green;
-      }
-
-      table td {
-        border-bottom: 1px solid green;
-        padding-top: 8px;
-        padding-bottom: 8px;
+      #div1 {
+        font-size: 12px;
       }
     }
   </style>
@@ -77,71 +50,44 @@
         <div class="">
           <p class="title-style text-center">Horario de Clases</p>
         </div>
-        <div class="dropdown m-2">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Seleccione el salon de clases
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="&salon=1">1LS131</a></li>
-            <li><a class="dropdown-item" href="&salon=2">1LS132</a></li>
-            <li><a class="dropdown-item" href="&salon=3">1SF111</a></li>
-            <li><a class="dropdown-item" href="&salon=4">1SF113</a></li>
-          </ul>
-        </div>
         <div id="div1">
-          <table class="text-center">
-            <thead>
-              <tr>
-                <th>Hora</th>
-                <th>Lunes</th>
-                <th>Martes</th>
-                <th>Miércoles</th>
-                <th>Jueves</th>
-              </tr>
-            </thead>
-            <tbody>
-
-            <!-- 1LS131 -->
-            <?php
-              foreach ($hora as $horario) {
-            ?>     
-            <tr>
-              <td><?php echo $horario->hora_entrada.' - '.$horario->hora_salida;?></td>
-              <td>
-                
-                <?php
-                foreach ($lunes as $horarioLunes) {
-                ?>    
-                  <?php echo $horarioLunes->materia.' '.$horarioLunes->cod_materia;?>
-                <?php
-                }
-                ?>
-              </td>
-
-              <td></td>
-
-              <td>
-                <?php
-                foreach ($miercoles as $horarioMiercoles) {
-                ?>    
-                  <?php echo $horarioMiercoles->materia.' '.$horarioMiercoles->cod_materia;?>
-                <?php
-                }
-                ?>
-              </td>
-              
-              <td></td>
-            </tr>
-            <?php
-            }
-            ?>
-
-                             
-               
- 
-
-            </tbody>
-          </table>
+          <div class="row mt-5 text-center">
+            <div class="col border border-dark"><strong>Hora</strong><br>
+              <?php foreach ($hora as $h) { ?>
+                <p class="border-top border-dark pt-2"><?php echo $h->hora_entrada; echo "-"; echo $h->hora_salida ?></p>
+              <?php } ?>
+            </div>
+            <div class="col border border-dark"><strong>Lunes</strong><br>
+              <?php foreach ($lunes as $l) { ?>
+                <p class="border-top border-dark pt-2"><?php echo $l->materia; ?></p>
+              <?php } ?>
+            </div>
+            <div class="col border border-dark"><strong>Martes</strong><br>
+              <?php foreach ($martes as $m) { ?>
+                <p class="border-top border-dark pt-2"><?php echo $m->materia; ?></p>
+              <?php } ?>
+            </div>
+            <div class="col border border-dark"><strong>Miercoles</strong><br>
+              <?php foreach ($miercoles as $mi) { ?>
+                <p class="border-top border-dark pt-2"><?php echo $mi->materia; ?></p>
+              <?php } ?>
+            </div>
+            <div class="col border border-dark"><strong>Jueves</strong><br>
+              <?php foreach ($jueves as $j) { ?>
+                <p class="border-top border-dark pt-2"><?php echo $j->materia; ?></p>
+              <?php } ?>
+            </div>
+            <div class="col border border-dark"><strong>Viernes</strong><br>
+              <?php foreach ($viernes as $v) { ?>
+                <p class="border-top border-dark pt-2"><?php echo $v->materia; ?></p>
+              <?php } ?>
+            </div>
+            <div class="col border border-dark"><strong>Sabado</strong><br>
+              <?php foreach ($sabado as $s) { ?>
+                <p class="border-top border-dark pt-2"><?php echo $s->materia; ?></p>
+              <?php } ?>
+            </div>
+          </div>
         </div>
       </div>
     </div>

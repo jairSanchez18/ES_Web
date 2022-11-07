@@ -3,39 +3,29 @@ session_start();
 
 include 'model/LoginModel.php';
 include 'model/PerfilModel.php';
+include 'model/HorarioModel.php';
 include 'model/AsistenciaModel.php';
+include 'model/SolicitudModel.php';
 
 class Controller
 {
-
     private $pdo;
+    private $msg;
 
     private $LoginModel;
     private $horarioModel;
-    private $horarioModel1;
-    private $horarioModel2;
-    private $horarioModel3;
-    private $horarioModel4;
-    private $salonesModel;
     private $Perfilmodel;
     private $AsistenciaModel;
-
-    public function __construct()
-    {
-        $this->LoginModel = new LoginModel();        
-        $this->Perfilmodel = new Perfilmodel(); 
-        $this->AsistenciaModel = new AsistenciaModel();
-    }
+    private $SolicitudModel;
 
     public function __construct()
     {
         $this->LoginModel = new LoginModel();
-        $this->horarioModel = new Horario();
-        $this->horarioModel1 = new Horario();
-        $this->horarioModel2 = new Horario();
-        $this->horarioModel3 = new Horario();
-        $this->horarioModel4 = new Horario();
         $this->Perfilmodel = new Perfilmodel();
+        $this->horarioModel = new Horario();
+        $this->Perfilmodel = new Perfilmodel();
+        $this->AsistenciaModel = new AsistenciaModel();
+        $this->SolicitudModel = new Solicitud();
     }
 
 
@@ -43,42 +33,49 @@ class Controller
     {
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
-            
-            $AsistenciaData = new AsistenciaModel();
-            $resp = new AsistenciaModel();
-
-            $AsistenciaData->id_profesor = $_SESSION['user_id'];
-    
-            $resp = $this->AsistenciaModel->mostrarDatosEstudiantes($AsistenciaData);
-            $resp2 = $this->AsistenciaModel->mostrarDatosAsistencia($AsistenciaData);
-            $resp3 = $this->AsistenciaModel->mostrarDatosHorario($AsistenciaData);
-        
         } else {
+            $asistencia = new AsistenciaModel();
+
+            $asistencia = $this->AsistenciaModel->VerAsistencia($_SESSION['user_id']);
+
             require('view/asistencia.php');
         }
+    }
+
+    public function GuardarObservaciones(){
+        $asistencia = new AsistenciaModel();
+
+        $asistencia->observaciones = $_REQUEST['observaciones'];
+        $asistencia->id_asist = $_GET['id_asist'];
+
+        $this->msg = $this->AsistenciaModel->guardarobservaciones($asistencia);
+        header('Location: ?op=vasistencia&msg='.$this->msg);
     }
 
     public function Horario()
     {
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
-        }else{
-            $hora = new Horario();
-            $hora = $this->horarioModel->ObtenerHorario();
-
-            $lunes = new Horario();
-            $lunes = $this->horarioModel1->ObtenerHorarioLunes();
-
-            $martes = new Horario();
-            $martes = $this->horarioModel2->ObtenerHorarioMartes();
-
-            $miercoles = new Horario();
-            $miercoles = $this->horarioModel3->ObtenerHorarioMiercoles();
-
-            $jueves = new Horario();
-            $jueves = $this->horarioModel4->ObtenerHorarioJueves();
         } else {
+            $hora = new Horario();
+            $lunes = new Horario();
+            $martes = new Horario();
+            $miercoles = new Horario();
+            $jueves = new Horario();
+            $viernes = new Horario();
+            $sabado = new Horario();
+
+            $data = new Horario();
+            $data->id_profesor = $_SESSION['user_id'];
+
+            $hora = $this->horarioModel->ObtenerHoras($data);
+            $lunes = $this->horarioModel->ObtenerLunes($data);
+            $martes = $this->horarioModel->ObtenerMartes($data);
+            $miercoles = $this->horarioModel->ObtenerMiercoles($data);
+            $jueves = $this->horarioModel->ObtenerJueves($data);
+            $viernes = $this->horarioModel->ObtenerViernes($data);
+            $sabado = $this->horarioModel->ObtenerSabado($data);
+
             require('view/horario.php');
         }
     }
@@ -87,7 +84,8 @@ class Controller
     {
         require('view/login.php');
     }
-    public function  Actualizarcontrasena()
+
+    public function Actualizarcontrasena()
     {
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
@@ -146,7 +144,6 @@ class Controller
         }
     }
 
-
     public function Principal()
     {
         if ($_SESSION['acceso'] != true) {
@@ -166,7 +163,35 @@ class Controller
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
         } else {
+            $producto = $this->SolicitudModel->Productos();
+            $datos = $this->SolicitudModel->ObtenerCorreo($_SESSION['user_id']);
+            $salon = $this->SolicitudModel->Salon($_SESSION['user_id']);
+
             require('view/solicitud.php');
+        }
+    }
+
+    public function EnviarSolicitud()
+    {
+        date_default_timezone_set('America/Panama');
+
+        $solicitud = new Solicitud();
+
+        $solicitud->producto = $_REQUEST['producto'];
+        $solicitud->salon = $_REQUEST['salon'];
+        $solicitud->cantidad = $_REQUEST['cantidad'];
+        $solicitud->id_profesor = $_SESSION['user_id'];
+        $solicitud->fecha_s = date("Y-m-d H:i:s");
+        $solicitud->estado = "Solicitado";
+
+        $resp = $this->SolicitudModel->ValidarCantidad($_REQUEST['producto']);
+
+        if ($_REQUEST['cantidad'] <= $resp->cantidad) {
+            $solicitud->id_inventario = $resp->id;
+            $this->SolicitudModel->EnviarSolicitud($solicitud);
+            header('Location: ?op=vsolicitud&msg=Solicitud realizada exitosamente&t=text-success');
+        } else {
+            header('Location: ?op=vsolicitud&msg=La cantidad solicitada no se encuentra disponible&t=text-danger');
         }
     }
 

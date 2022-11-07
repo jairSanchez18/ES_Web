@@ -11,6 +11,7 @@ class Perfilmodel
     public $contrasena;
     public $cedula;
     public $facultad;
+    public $id;
 
     //ESTE CODIGO VA SIEMPRE EN LOS MODEL
     public function __construct()
@@ -30,7 +31,7 @@ class Perfilmodel
             $stm->execute(
                 array(
                     $data->contrasena,
-                    $data-$id
+                    $data->id
                 )
                 );
             return$stm->fetch(PDO::FETCH_OBJ);
