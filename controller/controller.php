@@ -9,8 +9,8 @@ include 'model/SolicitudModel.php';
 
 class Controller
 {
-
     private $pdo;
+    private $msg;
 
     private $LoginModel;
     private $horarioModel;
@@ -34,18 +34,22 @@ class Controller
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
         } else {
+            $asistencia = new AsistenciaModel();
 
-            $AsistenciaData = new AsistenciaModel();
-            $resp = new AsistenciaModel();
-
-            $AsistenciaData->id_profesor = $_SESSION['user_id'];
-
-            $resp = $this->AsistenciaModel->mostrarDatosEstudiantes($AsistenciaData);
-            $resp2 = $this->AsistenciaModel->mostrarDatosAsistencia($AsistenciaData);
-            $resp3 = $this->AsistenciaModel->mostrarDatosHorario($AsistenciaData);
+            $asistencia = $this->AsistenciaModel->VerAsistencia($_SESSION['user_id']);
 
             require('view/asistencia.php');
         }
+    }
+
+    public function GuardarObservaciones(){
+        $asistencia = new AsistenciaModel();
+
+        $asistencia->observaciones = $_REQUEST['observaciones'];
+        $asistencia->id_asist = $_GET['id_asist'];
+
+        $this->msg = $this->AsistenciaModel->guardarobservaciones($asistencia);
+        header('Location: ?op=vasistencia&msg='.$this->msg);
     }
 
     public function Horario()
@@ -81,7 +85,7 @@ class Controller
         require('view/login.php');
     }
 
-    public function  Actualizarcontrasena()
+    public function Actualizarcontrasena()
     {
         if ($_SESSION['acceso'] != true) {
             require('view/login.php');
@@ -140,7 +144,6 @@ class Controller
         }
     }
 
-
     public function Principal()
     {
         if ($_SESSION['acceso'] != true) {
@@ -168,7 +171,8 @@ class Controller
         }
     }
 
-    public function EnviarSolicitud(){
+    public function EnviarSolicitud()
+    {
         date_default_timezone_set('America/Panama');
 
         $solicitud = new Solicitud();
@@ -182,11 +186,11 @@ class Controller
 
         $resp = $this->SolicitudModel->ValidarCantidad($_REQUEST['producto']);
 
-        if($_REQUEST['cantidad'] <= $resp->cantidad){
+        if ($_REQUEST['cantidad'] <= $resp->cantidad) {
             $solicitud->id_inventario = $resp->id;
             $this->SolicitudModel->EnviarSolicitud($solicitud);
             header('Location: ?op=vsolicitud&msg=Solicitud realizada exitosamente&t=text-success');
-        }else{
+        } else {
             header('Location: ?op=vsolicitud&msg=La cantidad solicitada no se encuentra disponible&t=text-danger');
         }
     }

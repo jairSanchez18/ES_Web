@@ -9,6 +9,8 @@ if (isset($_GET['op'])) {
 
     if ($opcion == "vasistencia") {
         $controller->Asistencia();
+    }else if ($opcion == "guardarobservaciones") {
+        $controller->GuardarObservaciones();
     } else if ($opcion == "vhorario") {
         $controller->Horario();
     } else if ($opcion == "vlogin") {
