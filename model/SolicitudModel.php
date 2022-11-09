@@ -5,6 +5,14 @@ class Solicitud{
     private $pdo;
 
     public $equipo;
+    public $id_profesor;
+    public $id_inventario;
+    public $producto;
+    public $fecha_s;
+    public $estado;
+    public $salon;
+    public $cantidad;
+    public $correo;
 
     public function __construct()
     {

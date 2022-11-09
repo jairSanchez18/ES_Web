@@ -10,8 +10,8 @@ include 'model/SolicitudModel.php';
 class Controller
 {
     private $pdo;
-    private $msg;
-
+    private $resp;
+    
     private $LoginModel;
     private $horarioModel;
     private $Perfilmodel;
@@ -77,12 +77,12 @@ class Controller
         $asistencia->id_asist = $_GET['id_asist'];
 
         $asistencia->id_profesor = $_SESSION['user_id'];
-        $asistencia->grupo = $_REQUEST['grupo'];
-        $asistencia->salon = $_REQUEST['salon'];
+        $asistencia->id_grupo = $_REQUEST['grupo'];
+        $asistencia->id_salon = $_REQUEST['salon'];
         $asistencia->fecha = $_REQUEST['fecha'];
 
-        $this->msg = $this->AsistenciaModel->guardarobservaciones($asistencia);
-        header('Location: ?op=vasistencia&msg=' . $this->msg);
+        $this->resp = $this->AsistenciaModel->guardarobservaciones($asistencia);
+        header('Location: ?op=vasistencia&msg=' . $this->resp);
     }
 
     public function Horario()

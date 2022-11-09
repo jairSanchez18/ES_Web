@@ -5,6 +5,7 @@ class Horario
 
     private $pdo;
     private $resp;
+    public $id_profesor;
 
     public function __construct()
     {

@@ -60,7 +60,7 @@ class AsistenciaModel
                 )
             );
 
-            return $this->resp = "La observacion fue guardada con exito&t=text-success&fecha=$data->fecha.&salon=$data->salon.&grupo=$data->grupo";
+            return $this->resp = "La observacion fue guardada con exito&t=text-success&fecha=$data->fecha.&salon=$data->id_salon.&grupo=$data->id_grupo";
         } catch (Exception $e) {
             die($e->getMessage());
         }
