@@ -73,7 +73,7 @@
                                 <td class="text-center">
                                     <?php echo $a->porcentaje ?> %
                                 </td>
-                                <form action="./?op=guardarobservaciones&id_asist=<?php echo $a->id ?>" method="post">
+                                <form action="./?op=guardarobservaciones&id_asist=<?php echo $a->id_asist ?>&fecha=<?php echo $_REQUEST['fecha'] ?>&grupo=<?php echo $_REQUEST['grupo'] ?>&salon=<?php echo $_REQUEST['salon']?>" method="post">
                                     <td><input name="observaciones" value="<?php echo $a->observaciones ?>"
                                             type="text" class="form-control inputs-style"></td>
                                     <td class="text-center"><button type="submit" class="btn btn-success"><i

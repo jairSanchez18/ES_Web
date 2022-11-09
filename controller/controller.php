@@ -35,21 +35,54 @@ class Controller
             require('view/login.php');
         } else {
             $asistencia = new AsistenciaModel();
+            $datos = new AsistenciaModel();
 
-            $asistencia = $this->AsistenciaModel->VerAsistencia($_SESSION['user_id']);
+            $datos->id_profesor = $_SESSION['user_id'];
+            $datos->id_grupo = $_REQUEST['grupo'];
+            $datos->id_horario = $_REQUEST['salon'];
+            $datos->fecha = $_REQUEST['fecha'];
+
+            $asistencia = $this->AsistenciaModel->VerAsistencia($datos);
 
             require('view/asistencia.php');
         }
     }
 
-    public function GuardarObservaciones(){
+    public function OpcionesAsistencia()
+    {
+        if ($_SESSION['acceso'] != true) {
+            require('view/login.php');
+        } else {
+            $asistencia = new AsistenciaModel();
+            $fecha = new AsistenciaModel();
+            $salon = new AsistenciaModel();
+
+            $fecha->id_profesor = $_SESSION['user_id'];
+
+            $salon->id_profesor = $_SESSION['user_id'];
+
+            $fecha = $this->AsistenciaModel->VerFecha($fecha);
+            $asistencia = $this->AsistenciaModel->VerGrupo($_SESSION['user_id']);
+            $salon = $this->AsistenciaModel->VerSalon($salon);
+
+            require('view/opciones_asistencia.php');
+        }
+    }
+
+    public function GuardarObservaciones()
+    {
         $asistencia = new AsistenciaModel();
 
         $asistencia->observaciones = $_REQUEST['observaciones'];
         $asistencia->id_asist = $_GET['id_asist'];
 
+        $asistencia->id_profesor = $_SESSION['user_id'];
+        $asistencia->grupo = $_REQUEST['grupo'];
+        $asistencia->salon = $_REQUEST['salon'];
+        $asistencia->fecha = $_REQUEST['fecha'];
+
         $this->msg = $this->AsistenciaModel->guardarobservaciones($asistencia);
-        header('Location: ?op=vasistencia&msg='.$this->msg);
+        header('Location: ?op=vasistencia&msg=' . $this->msg);
     }
 
     public function Horario()
