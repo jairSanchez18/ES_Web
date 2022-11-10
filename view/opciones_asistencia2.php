@@ -43,19 +43,37 @@
             <div class="shadow-sm p-3 bg-body rounded">
                 <h1 class="title-style text-center mb-5">Informacion de asistencia</h1>
                 <div>
-                    <form action="./?op=vopcionesasistencia2" method="POST">
+                    <form action="./?op=vasistencia" method="POST">
                         <div class="mt-5 mb-5">
                             <p class="mb-3 fw-bold">Seleccione la informacion a ver de la asistencia</p>
                             <hr>
-                            <label for="">Seleccione el grupo de clases</label>
-                            <select name="grupo" class="form-select inputs-style mb-3 mi-selector" id="">
-                                <?php foreach($asistencia as $a){ ?>
-                                    <option value="<?php echo $a->id; ?>"><?php echo $a->grupo; ?></option>
+                            <label for="" class="mb-2">Seleccione el salon de clases y la hora que inicia la clase</label>
+                            <select name="salon" class="form-select inputs-style mi-selector" id="">
+                                <?php foreach ($salon as $s) { ?>
+                                <option value="<?php echo $s->id_horario ?>">
+                                    <?php echo $s->salon ?> -
+                                    <?php echo $s->hora_entrada ?> -
+                                    <?php echo $s->dia ?>
+                                </option>
                                 <?php } ?>
                             </select>
+
+                            <label for="" class="mb-3 mt-5">Seleccione la fecha de clases</label>
+                            <select name="fecha" class="form-select inputs-style mi-selector" id="">
+                                <?php foreach ($fecha as $f) { ?>
+                                <option value="<?php echo $f->create_at ?>">
+                                    <?php echo $f->create_at ?>
+                                </option>
+                                <?php } ?>
+                            </select>
+
+                            <?php foreach ($salon as $s) { ?>
+                            <input type="text" name="grupo" value="<?php echo $s->id_grupo ?>" hidden>
+                            <?php } ?>
+
                         </div>
                         <div class="d-grid gap-2 mb-3">
-                            <button type="submit" class="btn-style">Siguiente</button>
+                            <button type="submit" class="btn-style">Ver Asistencia</button>
                         </div>
                     </form>
                 </div>

@@ -35,6 +35,7 @@ class Controller
             require('view/login.php');
         } else {
             $asistencia = new AsistenciaModel();
+            $asistencia2 = new AsistenciaModel();
             $datos = new AsistenciaModel();
 
             $datos->id_profesor = $_SESSION['user_id'];
@@ -43,6 +44,7 @@ class Controller
             $datos->fecha = $_REQUEST['fecha'];
 
             $asistencia = $this->AsistenciaModel->VerAsistencia($datos);
+            $asistencia2 = $this->AsistenciaModel->VerCamposSeleccionados($datos);
 
             require('view/asistencia.php');
         }
@@ -54,18 +56,28 @@ class Controller
             require('view/login.php');
         } else {
             $asistencia = new AsistenciaModel();
-            $fecha = new AsistenciaModel();
-            $salon = new AsistenciaModel();
 
-            $fecha->id_profesor = $_SESSION['user_id'];
-
-            $salon->id_profesor = $_SESSION['user_id'];
-
-            $fecha = $this->AsistenciaModel->VerFecha($fecha);
             $asistencia = $this->AsistenciaModel->VerGrupo($_SESSION['user_id']);
-            $salon = $this->AsistenciaModel->VerSalon($salon);
 
             require('view/opciones_asistencia.php');
+        }
+    }
+
+    public function OpcionesAsistencia2()
+    {
+        if ($_SESSION['acceso'] != true) {
+            require('view/login.php');
+        } else {
+            $asistencia = new AsistenciaModel();
+
+            $asistencia->id_profesor = $_SESSION['user_id'];
+            $asistencia->id_grupo = $_REQUEST['grupo'];
+
+            $fecha = $this->AsistenciaModel->VerFecha($asistencia);
+            $salon = $this->AsistenciaModel->VerSalon($asistencia);
+
+            
+            require('view/opciones_asistencia2.php');
         }
     }
 

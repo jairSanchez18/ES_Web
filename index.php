@@ -11,6 +11,8 @@ if (isset($_GET['op'])) {
         $controller->Asistencia();
     } else if ($opcion == "vopcionesasistencia") {
         $controller->OpcionesAsistencia();
+    } else if ($opcion == "vopcionesasistencia2") {
+        $controller->OpcionesAsistencia2();
     } else if ($opcion == "guardarobservaciones") {
         $controller->GuardarObservaciones();
     } else if ($opcion == "vhorario") {

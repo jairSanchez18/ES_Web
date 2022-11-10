@@ -54,37 +54,37 @@
           <div class="row mt-5 text-center">
             <div class="col border border-dark"><strong>Hora</strong><br>
               <?php foreach ($hora as $h) { ?>
-                <p class="border-top border-dark pt-2"><?php echo $h->hora_entrada; echo "-"; echo $h->hora_salida ?></p>
+                <p class="border-top border-dark pt-2"><?php echo $h->hora_entrada; echo "-"; echo $h->hora_salida ?> <br> -</p>
               <?php } ?>
             </div>
             <div class="col border border-dark"><strong>Lunes</strong><br>
               <?php foreach ($lunes as $l) { ?>
-                <p class="border-top border-dark pt-2"><?php echo $l->materia; ?></p>
+                <p class="border-top border-dark pt-2"><?php echo $l->materia; ?> <br> <?php echo $l->salon; ?></p>
               <?php } ?>
             </div>
             <div class="col border border-dark"><strong>Martes</strong><br>
               <?php foreach ($martes as $m) { ?>
-                <p class="border-top border-dark pt-2"><?php echo $m->materia; ?></p>
+                <p class="border-top border-dark pt-2"><?php echo $m->materia; ?> <br> <?php echo $m->salon; ?></p>
               <?php } ?>
             </div>
             <div class="col border border-dark"><strong>Miercoles</strong><br>
               <?php foreach ($miercoles as $mi) { ?>
-                <p class="border-top border-dark pt-2"><?php echo $mi->materia; ?></p>
+                <p class="border-top border-dark pt-2"><?php echo $mi->materia; ?> <br> <?php echo $mi->salon; ?></p>
               <?php } ?>
             </div>
             <div class="col border border-dark"><strong>Jueves</strong><br>
               <?php foreach ($jueves as $j) { ?>
-                <p class="border-top border-dark pt-2"><?php echo $j->materia; ?></p>
+                <p class="border-top border-dark pt-2"><?php echo $j->materia; ?> <br> <?php echo $j->salon; ?></p>
               <?php } ?>
             </div>
             <div class="col border border-dark"><strong>Viernes</strong><br>
               <?php foreach ($viernes as $v) { ?>
-                <p class="border-top border-dark pt-2"><?php echo $v->materia; ?></p>
+                <p class="border-top border-dark pt-2"><?php echo $v->materia; ?> <br> <?php echo $v->salon; ?></p>
               <?php } ?>
             </div>
             <div class="col border border-dark"><strong>Sabado</strong><br>
               <?php foreach ($sabado as $s) { ?>
-                <p class="border-top border-dark pt-2"><?php echo $s->materia; ?></p>
+                <p class="border-top border-dark pt-2"><?php echo $s->materia; ?> <br> <?php echo $s->salon; ?></p>
               <?php } ?>
             </div>
           </div>
