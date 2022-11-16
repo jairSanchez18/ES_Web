@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estado de asistencia</title>
-    <link rel="stylesheet" href="dev_cefv.css" type="text/css">
     <meta name="viewport" content="width=device-with, initial-scale=1.0">
 
     <link rel="stylesheet" href="public/styles/estilos/global.css">
@@ -31,12 +30,18 @@
         <div class="contenido-main" style="padding: 10px;">
             <div class="shadow-sm p-3 bg-body rounded">
                 <h1 class="title-style text-center mb-5">Lista de asistencia</h1>
+                <hr>
+                <p>Asistencia del grupo:
+                    <?php echo $asistencia2->grupo ?> <br>
+                    Salon:
+                    <?php echo $asistencia2->salon ?> <br>
+                </p>
                 <p class="<?php if (isset($_GET['t'])) {
                     echo $_GET['t'];
                 } ?>">
                     <?php if (isset($_GET['msg'])) {
-                    echo $_GET['msg'];
-                } ?>
+                        echo $_GET['msg'];
+                    } ?>
                 </p>
                 <div class="table-responsive">
                     <table class="table fs-5">
@@ -73,9 +78,11 @@
                                 <td class="text-center">
                                     <?php echo $a->porcentaje ?> %
                                 </td>
-                                <form action="./?op=guardarobservaciones&id_asist=<?php echo $a->id ?>" method="post">
-                                    <td><input name="observaciones" value="<?php echo $a->observaciones ?>"
-                                            type="text" class="form-control inputs-style"></td>
+                                <form
+                                    action="./?op=guardarobservaciones&id_asist=<?php echo $a->id_asist ?>&fecha=<?php echo $_REQUEST['fecha'] ?>&grupo=<?php echo $_REQUEST['grupo'] ?>&salon=<?php echo $_REQUEST['salon'] ?>"
+                                    method="post">
+                                    <td><input name="observaciones" value="<?php echo $a->observaciones ?>" type="text"
+                                            class="form-control inputs-style"></td>
                                     <td class="text-center"><button type="submit" class="btn btn-success"><i
                                                 class="bi bi-save fs-4"></i></button></td>
                                 </form>

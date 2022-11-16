@@ -5,6 +5,7 @@ class Perfilmodel
 {
     //DE LA BASE DE DATOS
     private $pdo;
+    public $msg;
 
     //DATA TRAIDA DEL SELECT
     public $correo;
@@ -12,6 +13,13 @@ class Perfilmodel
     public $cedula;
     public $facultad;
     public $id;
+    public $contrasenanueva;
+    public $nombre;
+    public $apellido;
+    public $telefono;
+    public $direccion;
+    public $id_profesor;
+    public $contrasenavieja;
 
     //ESTE CODIGO VA SIEMPRE EN LOS MODEL
     public function __construct()
@@ -54,7 +62,6 @@ public function Actualizarcontrasena(perfilmodel $data)
 
             return $this->msg = "Informacion de perfil actualizada con exito&t=text-success";
         } catch (Exception $e) {
-            die($e->getMessage());
             return $this->msg = "Ocurrio un error al actualizar la informacion, Intente nuevamente&t=text-danger";
         }
     }
@@ -78,7 +85,6 @@ public function Actualizarcontrasena(perfilmodel $data)
 
             return $this->msg = "Informacion de perfil actualizada con exito&t=text-success";
         } catch (Exception $e) {
-            die($e->getMessage());
             return $this->msg = "Ocurrio un error al actualizar la informacion, Intente nuevamente&t=text-danger";
         }
     }

@@ -9,7 +9,11 @@ if (isset($_GET['op'])) {
 
     if ($opcion == "vasistencia") {
         $controller->Asistencia();
-    }else if ($opcion == "guardarobservaciones") {
+    } else if ($opcion == "vopcionesasistencia") {
+        $controller->OpcionesAsistencia();
+    } else if ($opcion == "vopcionesasistencia2") {
+        $controller->OpcionesAsistencia2();
+    } else if ($opcion == "guardarobservaciones") {
         $controller->GuardarObservaciones();
     } else if ($opcion == "vhorario") {
         $controller->Horario();
@@ -23,7 +27,7 @@ if (isset($_GET['op'])) {
         $controller->Recuperar();
     } else if ($opcion == "vsolicitud") {
         $controller->Solicitud();
-    }else if ($opcion == "enviarsolicitud") {
+    } else if ($opcion == "enviarsolicitud") {
         $controller->EnviarSolicitud();
     } else if ($opcion == "validar") {
         $controller->ValidarLogin();
