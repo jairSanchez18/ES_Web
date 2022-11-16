@@ -103,11 +103,12 @@ class AsistenciaModel
     public function VerFecha(AsistenciaModel $data)
     {
         try {
-            $sql = "SELECT distinct date(create_at) as 'create_at' from lista_asist WHERE id_profesor = ?";
+            $sql = "SELECT distinct date(create_at) as 'create_at' from lista_asist WHERE id_profesor = ? and id_grupo = ?";
 
             $stm = $this->pdo->prepare($sql);
             $stm->execute(array(
-                $data->id_profesor
+                $data->id_profesor,
+                $data->id_grupo
             ));
 
             return $stm->fetchAll(PDO::FETCH_OBJ);
