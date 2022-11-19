@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 
 include 'model/LoginModel.php';
 include 'model/PerfilModel.php';
@@ -9,6 +10,7 @@ include 'model/SolicitudModel.php';
 
 class Controller
 {
+    
     private $pdo;
     private $resp;
     
@@ -42,10 +44,11 @@ class Controller
             $datos->id_grupo = $_REQUEST['grupo'];
             $datos->id_horario = $_REQUEST['salon'];
             $datos->fecha = $_REQUEST['fecha'];
+            
 
             $asistencia = $this->AsistenciaModel->VerAsistencia($datos);
             $asistencia2 = $this->AsistenciaModel->VerCamposSeleccionados($datos);
-
+            
             require('view/asistencia.php');
         }
     }
