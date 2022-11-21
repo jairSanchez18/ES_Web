@@ -54,4 +54,19 @@ class LoginModel
             die($e->getMessage());
         }
     }
+
+    public function ConsultarEmail($correo)
+    {
+        try {
+            $sql = "SELECT * FROM credenciales WHERE correo=?";
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute(array(
+                $correo
+            ));
+
+            return $stm->fetch(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }

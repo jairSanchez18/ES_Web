@@ -33,7 +33,7 @@
     <p class="title-style">Recuperar cuenta</p>
     <hr>
     <p class="<?php if (isset($_GET['msg'])) echo $_GET['t']; ?>"> <?php if (isset($_GET['msg'])) echo $_GET['msg']; ?> </p>
-    <form action="#" method="post" class="mb-4" name="formulario">
+    <form action="./?op=recuperarcontrasena" method="post" class="mb-4" name="formulario">
       <input type="email" name="correo" placeholder="Ingrese su correo" class="form-control mb-3 inputs-style" required autofocus>
 
       <div class="d-grid gap-2 mb-3">
