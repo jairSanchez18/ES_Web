@@ -19,7 +19,7 @@ if (isset($_GET['op'])) {
         $controller->Horario();
     } else if ($opcion == "vlogin") {
         $controller->Login();
-    } else if ($opcion == "vperfil") {
+    } else if ($opcion == md5("vperfil")) {
         $controller->Perfil();
     } else if ($opcion == "vprincipal") {
         $controller->Principal();
