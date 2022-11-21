@@ -25,6 +25,8 @@ if (isset($_GET['op'])) {
         $controller->Principal();
     } else if ($opcion == "vrecuperar") {
         $controller->Recuperar();
+    }else if ($opcion == "recuperarcontrasena") {
+        $controller->ValidarRecuperacion();
     } else if ($opcion == "vsolicitud") {
         $controller->Solicitud();
     } else if ($opcion == "enviarsolicitud") {

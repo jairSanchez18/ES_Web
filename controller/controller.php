@@ -8,12 +8,20 @@ include 'model/HorarioModel.php';
 include 'model/AsistenciaModel.php';
 include 'model/SolicitudModel.php';
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//require 'public/phpmailer/vendor/autoload.php';
+require 'public/phpmailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require 'public/phpmailer/vendor/phpmailer/phpmailer/src/SMTP.php';
+require 'public/phpmailer/vendor/phpmailer/phpmailer/src/Exception.php';
 class Controller
 {
-    
+
     private $pdo;
     private $resp;
-    
+
     private $LoginModel;
     private $horarioModel;
     private $Perfilmodel;
@@ -44,11 +52,11 @@ class Controller
             $datos->id_grupo = $_REQUEST['grupo'];
             $datos->id_horario = $_REQUEST['salon'];
             $datos->fecha = $_REQUEST['fecha'];
-            
+
 
             $asistencia = $this->AsistenciaModel->VerAsistencia($datos);
             $asistencia2 = $this->AsistenciaModel->VerCamposSeleccionados($datos);
-            
+
             require('view/asistencia.php');
         }
     }
@@ -79,7 +87,7 @@ class Controller
             $fecha = $this->AsistenciaModel->VerFecha($asistencia);
             $salon = $this->AsistenciaModel->VerSalon($asistencia);
 
-            
+
             require('view/opciones_asistencia2.php');
         }
     }
@@ -141,14 +149,18 @@ class Controller
             $consulta = new Perfilmodel();
 
             $id = $_SESSION['user_id'];
-            $consulta->contrasenavieja = $_REQUEST['password1'];
-            $consulta->contrasenanueva = $_REQUEST['password2'];
+            $consulta->contrasenavieja = md5($_REQUEST['password1']);
+            $consulta->contrasenanueva = md5($_REQUEST['password2']);
             $consulta->id = $id;
 
-            if ($this->resp = $this->Perfilmodel->Actualizarcontrasena($consulta)) {
-                header('Location: ?op=vperfil&msg=' . $this->resp);
+            if ($this->Perfilmodel->Verificarcontraseña($consulta)) {
+                if ($this->resp = $this->Perfilmodel->Actualizarcontrasena($consulta)) {
+                    header('Location: ?op=' . md5("vperfil") . '&msg=' . $this->resp);
 
-                $_SESSION['user_name'] = $consulta->nombre . " " . $consulta->apellido;
+                    $_SESSION['user_name'] = $consulta->nombre . " " . $consulta->apellido;
+                }
+            } else {
+                header('Location: ?op=' . md5("vperfil") . '&msg=La contraseña actual es incorrecta&t=text-danger');
             }
         }
     }
@@ -206,6 +218,61 @@ class Controller
         require('view/recuperar.php');
     }
 
+    public function ValidarRecuperacion()
+    {
+        $recuperar = new LoginModel();
+        $restablecer = new Perfilmodel();
+        $contrasenanueva = rand(1, 10000) * 5;
+
+        if ($recuperar = $this->LoginModel->ConsultarEmail($_REQUEST['correo'])) {
+
+            $restablecer->id = $recuperar->id_profesor;
+            $restablecer->correo = $_REQUEST['correo'];
+            $restablecer->contrasenanueva = md5($contrasenanueva);
+
+            $this->Perfilmodel->Actualizarcontrasena($restablecer);
+
+            $mensaje = '
+        <div style="padding: 20px;">
+            <div style="text-align: center;margin-bottom: 15px;">
+                <img src="https://utp.ac.pa/documentos/2015/imagen/logo_utp_1_72.png" width="150px" height="150px">
+            </div>
+            <div style="background-color: #7a1c79;color: white;font-weight: 600;padding-top: 20px;padding-bottom: 20px;">
+                <p align="center" style="font-size:20px;">Ingrese este codigo como contraseña: <i style="color: red;">' . $contrasenanueva . '</i></p>
+                <p align="center" style="font-size:20px;">SE RECOMIENDA CAMBIAR LA CONTRASEÑA EN LA SECCION DE PERFIL</p>
+            </div>
+        </div>';
+
+            $email = new PHPMailer(true);
+            try {
+                //$email->SMTPDebug = SMTP::DEBUG_SERVER;
+                $email->isSMTP();
+                $email->Host = 'smtp.gmail.com';
+                $email->SMTPAuth = true;
+                $email->Username = ""; //se debe crear una cuenta de encoding system
+                $email->Password = "";
+                $email->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $email->Port = 587;
+
+                $email->setFrom('jairsan2618@gmail.com', 'Encoding System');
+                $email->addAddress($_REQUEST['correo'], 'Correo UTP');
+
+                $email->isHTML(true);
+                $email->Subject = 'Recuperacion de contrasena';
+                $email->Body = $mensaje;
+                $email->send();
+
+                header('Location: ?op=vrecuperar&msg=Se ha enviado un correo con la nueva contraseña&t=text-success');
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+
+        } else {
+            header('Location: ?op=vrecuperar&msg=El Email no pertence a la institucion&t=text-danger');
+        }
+
+    }
+
     public function Solicitud()
     {
         if ($_SESSION['acceso'] != true) {
@@ -258,7 +325,7 @@ class Controller
         $LoginData = new LoginModel();
 
         $LoginData->correo = $_REQUEST['correo'];
-        $LoginData->contrasena = $_REQUEST['contrasena'];
+        $LoginData->contrasena = md5($_REQUEST['contrasena']);
 
         if ($resp = $this->LoginModel->ValidarLogin($LoginData)) {
             $_SESSION['user_id'] = $resp->id_profesor;

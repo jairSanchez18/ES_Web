@@ -38,7 +38,7 @@ class Perfilmodel
             $stm =$this->pdo->prepare($sql);
             $stm->execute(
                 array(
-                    $data->contrasena,
+                    $data->contrasenavieja,
                     $data->id
                 )
                 );
