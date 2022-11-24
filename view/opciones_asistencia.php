@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver asistencia</title>
     <meta name="viewport" content="width=device-with, initial-scale=1.0">
-
+    <a class="header-posicion" href="./op=<?php echo md5("vopcionesasistencia") ?>">
     <link rel="stylesheet" href="public/styles/estilos/global.css">
     <link rel="stylesheet" href="public/styles/bootstrap/bootstrap.min.css">
     <script src="public/styles/bootstrap/bootstrap.bundle.min.js"></script>
@@ -43,7 +43,7 @@
             <div class="shadow-sm p-3 bg-body rounded">
                 <h1 class="title-style text-center mb-5">Informacion de asistencia</h1>
                 <div>
-                    <form action="./?op=vopcionesasistencia2" method="POST">
+                    <form action="./?op=<?php echo md5("vopcionesasistencia2") ?>" method="POST">
                         <div class="mt-5 mb-5">
                             <p class="mb-3 fw-bold">Seleccione la informacion a ver de la asistencia</p>
                             <hr>
