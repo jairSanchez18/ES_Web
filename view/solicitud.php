@@ -29,7 +29,8 @@
                     <p class="title-style text-center">Solicitudes</p>
                 </div>
                 <p class="text-center <?php if (isset($_GET['t'])) { echo $_GET['t'];} ?>"><?php if (isset($_GET['msg'])) {echo $_GET['msg'];} ?></p>
-                <form action="./?op=enviarsolicitud" method="post">
+                <form action="./?op=<?php echo md5("enviarsolicitud") ?>" method="post">
+                
                     <div class="row input-group">
                         <div class="mb-3">
                             <label for="" class="form-label font-weight-bold">Seleccione el producto:</label>

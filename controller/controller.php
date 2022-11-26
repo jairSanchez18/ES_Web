@@ -105,7 +105,8 @@ class Controller
         $asistencia->fecha = $_REQUEST['fecha'];
 
         $this->resp = $this->AsistenciaModel->guardarobservaciones($asistencia);
-        header('Location: ?op=vasistencia&msg=' . $this->resp);
+        /*header('Location: ?op=vasistencia&msg=' . $this->resp);*/
+        header('Location: ?op=' . md5("vasistencia") . '&msg'. $this->resp);
     }
 
     public function Horario()
@@ -303,9 +304,9 @@ class Controller
         if ($_REQUEST['cantidad'] <= $resp->cantidad) {
             $solicitud->id_inventario = $resp->id;
             $this->SolicitudModel->EnviarSolicitud($solicitud);
-            header('Location: ?op=vsolicitud&msg=Solicitud realizada exitosamente&t=text-success');
+            header('Location: ?op=' . md5("vsolicitud") . '&msg=Solicitud realizada exitosamente&t=text-success');
         } else {
-            header('Location: ?op=vsolicitud&msg=La cantidad solicitada no se encuentra disponible&t=text-danger');
+            header('Location: ?op=' . md5("vsolicitud") . '&msg=La cantidad solicitada no se encuentra disponible&t=text-danger');
         }
     }
 
@@ -333,8 +334,6 @@ class Controller
 
             $_SESSION['acceso'] = true;
             $_SESSION['user_name'] = $datos->nombre . " " . $datos->apellido;
-            /* puede que el error este aqui. 
-            header('Location: ?op=vprincipal');*/
             header('Location: ?op='.md5("vprincipal") . $this->resp);
         } else {
             header('Location: ?op=' . md5("vlogin") . '&msg=Verifique el correo y contraseña introducidos&t=text-danger'. $this->resp);
