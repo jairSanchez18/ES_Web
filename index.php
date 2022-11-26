@@ -17,27 +17,27 @@ if (isset($_GET['op'])) {
         $controller->GuardarObservaciones();
     } else if ($opcion == "vhorario") {
         $controller->Horario();
-    } else if ($opcion == "vlogin") {
+    } else if ($opcion ==  "vlogin") {
         $controller->Login();
-    } else if ($opcion == md5("vperfil")) {
+    } else if ($opcion == md5 ("vperfil")) {
         $controller->Perfil();
-    } else if ($opcion == "vprincipal") {
+    } else if ($opcion == md5 ("vprincipal")) {
         $controller->Principal();
-    } else if ($opcion == "vrecuperar") {
+    } else if ($opcion == md5 ("vrecuperar")) {
         $controller->Recuperar();
-    }else if ($opcion == "recuperarcontrasena") {
+    }else if ($opcion == md5 ("recuperarcontrasena")) {
         $controller->ValidarRecuperacion();
-    } else if ($opcion == "vsolicitud") {
+    } else if ($opcion == md5 ("vsolicitud")) {
         $controller->Solicitud();
-    } else if ($opcion == "enviarsolicitud") {
+    } else if ($opcion == md5 ("enviarsolicitud")) {
         $controller->EnviarSolicitud();
-    } else if ($opcion == "validar") {
+    } else if ($opcion == md5 ("validar")) {
         $controller->ValidarLogin();
-    } else if ($opcion == "vperfila") {
+    } else if ($opcion == md5 ("vperfila")) {
         $controller->PerfilA();
-    } else if ($opcion == "vcontrasena") {
+    } else if ($opcion == md5 ("vcontrasena")) {
         $controller->Actualizarcontrasena();
-    } else if ($opcion == "vsalir") {
+    } else if ($opcion == md5 ("vsalir")) {
         $controller->CerrarSesion();
     } else {
         $controller->Error();

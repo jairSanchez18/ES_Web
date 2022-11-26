@@ -261,14 +261,13 @@ class Controller
                 $email->Subject = 'Recuperacion de contrasena';
                 $email->Body = $mensaje;
                 $email->send();
-
-                header('Location: ?op=vrecuperar&msg=Se ha enviado un correo con la nueva contraseña&t=text-success');
+                header('Location: ?op=' . md5("vrecuperar") . '&msg=Se ha enviado un correo con la nueva contraseña&t=text-success');
             } catch (Exception $e) {
                 die($e->getMessage());
             }
 
         } else {
-            header('Location: ?op=vrecuperar&msg=El Email no pertence a la institucion&t=text-danger');
+            header('Location: ?op=' . md5("vrecuperar") . '&msg=El Email no pertence a la institucion&t=text-danger');
         }
 
     }
@@ -334,9 +333,11 @@ class Controller
 
             $_SESSION['acceso'] = true;
             $_SESSION['user_name'] = $datos->nombre . " " . $datos->apellido;
-            header('Location: ?op=vprincipal');
+            /* puede que el error este aqui. 
+            header('Location: ?op=vprincipal');*/
+            header('Location: ?op='.md5("vprincipal") . $this->resp);
         } else {
-            header('Location: ?op=vlogin&msg=Verifique el correo y contraseña introducidos&t=text-danger');
+            header('Location: ?op=' . md5("vlogin") . '&msg=Verifique el correo y contraseña introducidos&t=text-danger'. $this->resp);
         }
     }
 
