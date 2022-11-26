@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <a class="header-posicion" href="./op=<?php echo md5("vprincipal") ?>">
     <title>Pagina princial</title>
     <link rel="stylesheet" href="public/styles/estilos/frtv.css">
+    <a class="header-posicion" href="./op=<?php echo md5("vprincipal") ?>">
 </head>
 
 <body>
