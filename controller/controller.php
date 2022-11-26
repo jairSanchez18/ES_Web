@@ -105,7 +105,8 @@ class Controller
         $asistencia->fecha = $_REQUEST['fecha'];
 
         $this->resp = $this->AsistenciaModel->guardarobservaciones($asistencia);
-        header('Location: ?op=vasistencia&msg=' . $this->resp);
+        /*header('Location: ?op=vasistencia&msg=' . $this->resp);*/
+        header('Location: ?op=' . md5("vasistencia") . '&msg'. $this->resp);
     }
 
     public function Horario()
@@ -334,7 +335,7 @@ class Controller
 
             $_SESSION['acceso'] = true;
             $_SESSION['user_name'] = $datos->nombre . " " . $datos->apellido;
-            header('Location: ?op=vprincipal');
+            header('Location: ?op='.md5("vprincipal") . $this->resp);
         } else {
             header('Location: ?op=vlogin&msg=Verifique el correo y contraseña introducidos&t=text-danger');
         }
