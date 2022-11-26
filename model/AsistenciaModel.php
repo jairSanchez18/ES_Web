@@ -28,12 +28,12 @@ class AsistenciaModel
     public function VerAsistencia(AsistenciaModel $data)
     {
         try {
-            $sql = "SELECT l.id as 'id_asist', l.id_profesor, l.id_estudiante, l.asistencia, l.porcentaje,
+            $sql = "SELECT DISTINCT l.id as 'id_asist', l.id_profesor, l.id_estudiante, l.asistencia, l.porcentaje,
             l.observaciones, l.id_grupo, l.create_at, h.id as 'id_horario', h.hora_entrada, h.hora_salida,
             h.salon, h.id_grupo, e.nombre, e.apellido, e.cedula, e.facultad, e.carrera, e.correo, g.grupo FROM lista_asist AS l
             JOIN horario AS h ON l.id_horario = h.id
             JOIN estudiante AS e ON e.id = l.id_estudiante
-            JOIN grupos AS g ON h.id_grupo = g.id WHERE h.id =? and g.id =? and date(l.create_at) =? and l.id_profesor =?";
+            JOIN grupos AS g ON h.id_grupo = g.id WHERE h.id =? and g.id =? and date(l.create_at) =? and l.id_profesor =? GROUP BY l.id_estudiante";
 
             $stm = $this->pdo->prepare($sql);
             $stm->execute(array(
