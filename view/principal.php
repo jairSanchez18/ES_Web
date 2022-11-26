@@ -8,6 +8,7 @@
     <a class="header-posicion" href="./op=<?php echo md5("vprincipal") ?>">
     <title>Pagina princial</title>
     <link rel="stylesheet" href="public/styles/estilos/frtv.css">
+    <a class="header-posicion" href="./op=<?php echo md5("vprincipal") ?>">
 </head>
 
 <body>

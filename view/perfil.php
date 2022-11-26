@@ -56,7 +56,8 @@
             } ?>
           </p>
         </div>
-        <form action="./?op=vperfila" method="POST"">
+        <form action="./?op=<?php echo md5("vperfila") ?>" method="POST">
+        
           <div class=" mb-3">
           <label for="nombre_usr" class="form-label font-weight-bold parrafo-style">Nombre:</label>
           <br>
@@ -117,7 +118,7 @@
         </div>
         </form>
 
-        <form action="./?op=vcontrasena" name="formulario" method="POST" onsubmit="return Validar()">
+        <form action="./?op=<?php echo md5("vcontrasena") ?>" name="formulario" method="POST" onsubmit="return Validar()">
           <label for="exampleInputPassword1" class="form-label font-weight-bold parrafo-style">Cambiar
             contraseña</label>
           <input type="password" name="password1" placeholder="Contraseña actual"

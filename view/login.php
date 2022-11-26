@@ -26,13 +26,13 @@
 
 <body class="bg-dark sesionstyle">
   <div class="bg-white text-center p-4 box-style">
-    <a href="./?op=vlogin">
+    <a href="./?op=<?php echo md5("vlogin") ?>">
       <img src="public/Images/utp.svg" alt="" srcset="" width="150px" height="150px">
     </a>
     <p class="title-style">Inicio de Sesion</p>
     <hr>
     <p class="<?php if (isset($_GET['t'])) echo $_GET['t']; ?>"> <?php if (isset($_GET['msg'])) echo $_GET['msg']; ?> </p>
-    <form action="./?op=validar" method="POST" class="mb-4">
+    <form action="./?op=<?php echo md5("validar") ?>" method= "POST" class="mb-4">
       <input type="email" name="correo" placeholder="Ingrese su correo" class="form-control mb-3 inputs-style">
       <input type="password" name="contrasena" placeholder="Ingrese su contraseña" class="form-control mb-3 inputs-style">
 
@@ -41,7 +41,7 @@
       </div>
 
       <p>¿Olvido su contraseña?
-        <a href="./?op=vrecuperar">Recuperar</a>
+        <a href="./?op=<?php echo md5("vrecuperar") ?>">Recuperar</a>
       </p>
 
     </form>

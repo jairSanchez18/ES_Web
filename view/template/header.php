@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="public/styles/estilos/frtv.css">
 </head>
 
-<a class="header-posicion" href="./?op=vprincipal">
+<a class="header-posicion" href="./?op=<?php echo md5("vprincipal") ?>">
     <img class="logoutp" src="public/Images/imagesPP/logo_utp.jpg" alt="Logo utp">
     <h1>Asistencia UTP</h1>
 </a>
