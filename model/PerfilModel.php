@@ -60,9 +60,9 @@ public function Actualizarcontrasena(perfilmodel $data)
                 $data->id
             ));
 
-            return $this->msg = "Informacion de perfil actualizada con exito&t=text-success";
+            return $this->msg = "Contraseña actualizada con exito&t=text-success";
         } catch (Exception $e) {
-            return $this->msg = "Ocurrio un error al actualizar la informacion, Intente nuevamente&t=text-danger";
+            return $this->msg = "Ocurrio un error al actualizar la contraseña, Intente nuevamente&t=text-danger";
         }
     }
 

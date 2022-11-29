@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver asistencia</title>
     <meta name="viewport" content="width=device-with, initial-scale=1.0">
-    <a class="header-posicion" href="./op=<?php echo md5("vopcionesasistencia") ?>">
     <link rel="stylesheet" href="public/styles/estilos/global.css">
     <link rel="stylesheet" href="public/styles/bootstrap/bootstrap.min.css">
     <script src="public/styles/bootstrap/bootstrap.bundle.min.js"></script>
@@ -61,7 +60,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <footer class="footer">
         <?php
