@@ -6,16 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estado de asistencia</title>
-    <meta name="viewport" content="width=device-with, initial-scale=1.0">
-    <a class="header-posicion" href="./op=<?php echo md5("vasistencia") ?>">
-    <link rel="stylesheet" href="public/styles/estilos/global.css">
     <link rel="stylesheet" href="public/styles/bootstrap/bootstrap.min.css">
     <script src="public/styles/bootstrap/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="public/styles/estilos/global.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
 </head>
 
-<body class="">
+<body>
     <header>
         <?php
         require_once('template/header.php');
@@ -78,8 +75,8 @@
                                 <td class="text-center">
                                     <?php echo $a->porcentaje ?> %
                                 </td>
-                                <form 
-                                    action="./?op=<?php echo md5("guardarobservaciones")?>&id_asist=<?php echo $a->id_asist ?>&fecha=<?php echo $_REQUEST['fecha'] ?>&grupo=<?php echo $_REQUEST['grupo'] ?>&salon=<?php echo $_REQUEST['salon'] ?>"
+                                <form
+                                    action="./?op=<?php echo md5("guardarobservaciones") ?>&id_asist=<?php echo $a->id_asist ?>&fecha=<?php echo $_REQUEST['fecha'] ?>&grupo=<?php echo $_REQUEST['grupo'] ?>&salon=<?php echo $_REQUEST['salon'] ?>"
                                     method="post">
                                     <td><input name="observaciones" value="<?php echo $a->observaciones ?>" type="text"
                                             class="form-control inputs-style"></td>
@@ -94,13 +91,11 @@
             </div>
         </div>
     </div>
-    </div>
     <footer class="footer">
         <?php
         require_once('template/footer.php');
         ?>
     </footer>
-
 </body>
 
 </html>

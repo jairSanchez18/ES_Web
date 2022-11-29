@@ -106,7 +106,7 @@ class Controller
 
         $this->resp = $this->AsistenciaModel->guardarobservaciones($asistencia);
         /*header('Location: ?op=vasistencia&msg=' . $this->resp);*/
-        header('Location: ?op=' . md5("vasistencia") . '&msg'. $this->resp);
+        header('Location: ?op=' . md5("vasistencia") . '&msg=' . $this->resp);
     }
 
     public function Horario()
@@ -157,8 +157,6 @@ class Controller
             if ($this->Perfilmodel->Verificarcontraseña($consulta)) {
                 if ($this->resp = $this->Perfilmodel->Actualizarcontrasena($consulta)) {
                     header('Location: ?op=' . md5("vperfil") . '&msg=' . $this->resp);
-
-                    $_SESSION['user_name'] = $consulta->nombre . " " . $consulta->apellido;
                 }
             } else {
                 header('Location: ?op=' . md5("vperfil") . '&msg=La contraseña actual es incorrecta&t=text-danger');
@@ -183,7 +181,7 @@ class Controller
             $consulta->id = $id;
 
             if ($this->resp = $this->Perfilmodel->ActualizarPerfil($consulta)) {
-                header('Location: ?op=vperfil&msg=' . $this->resp);
+                header('Location: ?op=' . md5("vperfil") . '&msg=' . $this->resp);
 
                 $_SESSION['user_name'] = $consulta->nombre . " " . $consulta->apellido;
             }
@@ -334,9 +332,9 @@ class Controller
 
             $_SESSION['acceso'] = true;
             $_SESSION['user_name'] = $datos->nombre . " " . $datos->apellido;
-            header('Location: ?op='.md5("vprincipal") . $this->resp);
+            header('Location: ?op=' . md5("vprincipal") . $this->resp);
         } else {
-            header('Location: ?op=' . md5("vlogin") . '&msg=Verifique el correo y contraseña introducidos&t=text-danger'. $this->resp);
+            header('Location: ?op=' . md5("vlogin") . '&msg=Verifique el correo y contraseña introducidos&t=text-danger' . $this->resp);
         }
     }
 
